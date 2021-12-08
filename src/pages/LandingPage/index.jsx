@@ -9,15 +9,15 @@ const LandingPage = () => {
       </LeftContainer>
       <RightContainer>
         <h2>
-          Welcome to <span>Brutal Habits</span>
+          Bem-vindo ao <span>Brutal Habits</span>
         </h2>
         <h2>
-          Here you will <strong>BRUTALLY</strong> change
+          Aqui, você vai <strong>BRUTALMENTE</strong> mudar
         </h2>
-        <h2>the way you organize yourself</h2>
+        <h2>a forma como se organiza</h2>
         <div>
-          <button>Login</button>
-          <button>Register</button>
+          <button>Entrar</button>
+          <button>Registrar</button>
         </div>
       </RightContainer>
     </Container>
