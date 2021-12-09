@@ -21,9 +21,9 @@ export default createGlobalStyle`
   
 :root{
 --red: #C42E2E;
---black: black;
+--black: #000;
 --platinum: #E6E8E6;
---white: white;
+--white: #fff;
 }
 
 button{
