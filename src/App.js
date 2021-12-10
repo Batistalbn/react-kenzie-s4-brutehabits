@@ -1,10 +1,10 @@
 import GlobalStyles from "./styles/global";
-
+import { Route } from "react-router-dom";
 function App() {
   return (
     <>
       <GlobalStyles />
-      <Routes />
+      <Route />
     </>
   );
 }
