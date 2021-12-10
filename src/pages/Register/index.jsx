@@ -1,15 +1,16 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import api from "../../services/api";
 import toast from "react-hot-toast";
 import { TextField, Box } from "@mui/material";
-import { FormContainer, FlexContainer } from "./styles";
+import { FormContainer, FlexContainer, FormHeader } from "./styles";
 import Button from "../../components/Button";
 import { HiOutlineArrowRight } from "react-icons/hi";
+import BrutalHabits from "../../assets/BrutalHabits_500.png";
 
-function Register() {
+const Register = () => {
   const formSchema = yup.object().shape({
     username: yup.string().required("Username obrigatório"),
     email: yup.string().required("E-mail obrigatória").email("E-mail inválida"),
@@ -23,7 +24,6 @@ function Register() {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(formSchema),
@@ -40,7 +40,7 @@ function Register() {
       .then((response) => {
         toast.success("Sucesso ao criar usuário");
         console.log(response);
-        // return history.push("/login");
+        return history.push("/login");
       })
       .catch((err) => {
         toast.error("Username existente");
@@ -50,12 +50,17 @@ function Register() {
 
   return (
     <FlexContainer>
+      <FormHeader>
+        <img src={BrutalHabits} alt="BrutalHabits logo" />
+      </FormHeader>
       <FormContainer>
         <Box
           onSubmit={handleSubmit(onSubmitFunction)}
           component="form"
           sx={{
-            "& > :not(style)": { m: 1, width: "280px" },
+            "& > :not(style)": {
+              m: 1,
+            },
           }}
           noValidate
           autoComplete="on"
@@ -96,6 +101,11 @@ function Register() {
             error={errors.confirmPassword?.message}
             helperText={errors.confirmPassword?.message}
           />
+          <div>
+            <span>
+              Já tem uma conta? Entre <Link to="/login">aqui</Link>
+            </span>
+          </div>
 
           <Button type="submit" variant="contained" color="secondary">
             <HiOutlineArrowRight size="30px" />
@@ -104,6 +114,6 @@ function Register() {
       </FormContainer>
     </FlexContainer>
   );
-}
+};
 
 export default Register;
