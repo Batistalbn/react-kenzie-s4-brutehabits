@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GroupsContext } from "../../providers/Groups";
 import { Header, Pages } from "./styles";
+import PageButton from "../PageButton";
+import AddButton from "../AddButton";
+import SubmitButton from "../SubmitButton";
 
 const GroupsList = () => {
   const { groups, nextPage, previousPage, page, setFilter, handleClick } =
@@ -12,13 +15,13 @@ const GroupsList = () => {
       <Header>
         <div>
           <h1>Grupos</h1>
-          <button>+</button>
+          <AddButton />
         </div>
         <input
           placeholder="Pesquisar"
           onChange={(e) => setFilter(e.target.value)}
         />
-        <button onClick={handleClick}>Pesquisar</button>
+        <SubmitButton onSubmit={handleClick} />
       </Header>
 
       <div>
@@ -35,9 +38,9 @@ const GroupsList = () => {
       </div>
 
       <Pages>
-        <button onClick={previousPage}>Página anterior</button>
+        <PageButton left onClick={previousPage} />
         <p>{page}</p>
-        <button onClick={nextPage}>Próxima página</button>
+        <PageButton right onClick={nextPage} />
       </Pages>
     </div>
   );

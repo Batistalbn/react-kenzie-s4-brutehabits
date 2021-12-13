@@ -8,6 +8,7 @@ export default createGlobalStyle`
     outline: 0;
     box-sizing:border-box;
   }
+  
 
   body{
       font-size:18px;
@@ -21,9 +22,9 @@ export default createGlobalStyle`
   
 :root{
 --red: #C42E2E;
---black: black;
+--black: #000;
 --platinum: #E6E8E6;
---white: white;
+--white: #fff;
 }
 
 button{
