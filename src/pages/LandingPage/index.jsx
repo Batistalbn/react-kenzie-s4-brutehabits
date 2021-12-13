@@ -1,7 +1,7 @@
 import { Container, RightContainer, LeftContainer } from "./styles";
 import BrutalHabits from "../../assets/BrutalHabits_500.png";
 
-function LandingPage(){
+const LandingPage = () => {
   return (
     <Container>
       <LeftContainer>
@@ -12,7 +12,7 @@ function LandingPage(){
           Bem-vindo ao <span>Brutal Habits</span>
         </h2>
         <h2>
-          Aqui, você vai <strong>BRUTALMENTE</strong> mudar
+          Aqui você vai mudar <strong>BRUTALMENTE</strong>
         </h2>
         <h2>a forma como se organiza</h2>
         <div>
