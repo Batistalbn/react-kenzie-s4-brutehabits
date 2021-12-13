@@ -1,8 +1,8 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Container } from "./styles";
-const SubmitButton = () => (
+const SubmitButton = ({ onSubmit }) => (
   <div>
-    <Container variant="contained">
+    <Container onSubmit={onSubmit} variant="contained">
       <ArrowForwardIcon fontSize="inherit" />
     </Container>
   </div>
