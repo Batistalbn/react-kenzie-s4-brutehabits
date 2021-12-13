@@ -11,7 +11,7 @@ function Routes() {
         <LandingPage />
       </Route>
       <Route path="/register">
-        <Register/>
+        <Register />
       </Route>
       <Route path="/login"></Route>
       <Route exact path="/dashboard/habits"></Route>
