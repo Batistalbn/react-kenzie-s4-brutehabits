@@ -1,12 +1,13 @@
 import GlobalStyles from "./styles/global";
-import { Route } from "react-router-dom";
-import Header from "./components/Header";
+import Routes from "./routes";
+import {Toaster} from 'react-hot-toast'
+
 function App() {
   return (
     <>
       <GlobalStyles />
-      <Route />
-      <Header />
+      <Toaster position = 'top-center' /> 
+      <Routes />
     </>
   );
 }

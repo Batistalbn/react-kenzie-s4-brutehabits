@@ -1,7 +1,7 @@
 import { Container, RightContainer, LeftContainer } from "./styles";
 import BrutalHabits from "../../assets/BrutalHabits_500.png";
 
-const LandingPage = () => {
+function LandingPage(){
   return (
     <Container>
       <LeftContainer>
