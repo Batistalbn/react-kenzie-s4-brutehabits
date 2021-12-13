@@ -1,7 +1,11 @@
 import { Container, RightContainer, LeftContainer } from "./styles";
 import BrutalHabits from "../../assets/BrutalHabits_500.png";
+import Button from "../../components/Button";
+import { useHistory } from "react-router";
 
 const LandingPage = () => {
+  const history = useHistory();
+
   return (
     <Container>
       <LeftContainer>
@@ -16,8 +20,8 @@ const LandingPage = () => {
         </h2>
         <h2>a forma como se organiza</h2>
         <div>
-          <button>Entrar</button>
-          <button>Registrar</button>
+          <Button onClick={() => history.push("/login")}>Entrar</Button>
+          <Button onClick={() => history.push("/register")}>Registrar</Button>
         </div>
       </RightContainer>
     </Container>
