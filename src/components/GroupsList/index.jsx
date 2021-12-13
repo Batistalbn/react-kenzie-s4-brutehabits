@@ -1,10 +1,11 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { GroupsContext } from "../../providers/Groups";
 import { Header, Pages } from "./styles";
 
 const GroupsList = () => {
-  const { groups, nextPage, previousPage, page } = useContext(GroupsContext);
-  console.log(groups);
+  const { groups, nextPage, previousPage, page, setFilter, handleClick } =
+    useContext(GroupsContext);
 
   return (
     <div>
@@ -13,13 +14,19 @@ const GroupsList = () => {
           <h1>Grupos</h1>
           <button>+</button>
         </div>
-        <input placeholder="Pesquisar" />
+        <input
+          placeholder="Pesquisar"
+          onChange={(e) => setFilter(e.target.value)}
+        />
+        <button onClick={handleClick}>Pesquisar</button>
       </Header>
 
       <div>
         {groups.map((element) => (
           <div key={element.id}>
-            <h3>{element.name}</h3>
+            <Link to={`/dasboard/groups/${element.id}`}>
+              <h3>{element.name}</h3>
+            </Link>
             <p>{element.category}</p>
             <p>{element.description}</p>
             <span>Membros: {element.users_on_group?.length}</span>

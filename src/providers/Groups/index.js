@@ -26,12 +26,23 @@ export const GroupsProvider = ({ children }) => {
     }
   };
 
+  const [filter, setFilter] = useState("");
+
+  const handleClick = () => {
+    api.get(`/groups/?search=${filter}`).then((response) => {
+      console.log(response.data.results);
+      setGroups(response.data.results);
+    });
+  };
+
   useEffect(() => {
     GroupsList();
   }, [page]);
 
   return (
-    <GroupsContext.Provider value={{ groups, nextPage, previousPage, page }}>
+    <GroupsContext.Provider
+      value={{ groups, nextPage, previousPage, page, setFilter, handleClick }}
+    >
       {children}
     </GroupsContext.Provider>
   );
