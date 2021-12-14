@@ -1,8 +1,8 @@
 import styled, { keyframes } from "styled-components";
-import { merge, zoomIn, tada, fadeInRight } from "react-animations";
+import { merge, zoomIn, pulse, fadeInRight } from "react-animations";
 
-const mergeZoomInTada = merge(zoomIn, tada);
-const zoomInTadaAnimation = keyframes`${mergeZoomInTada}`;
+const mergeZoomInPulse = merge(zoomIn, pulse);
+const zoomInPulseAnimation = keyframes`${mergeZoomInPulse}`;
 const fadeInRightAnimation = keyframes`${fadeInRight}`;
 
 export const Container = styled.main`
@@ -21,7 +21,7 @@ export const LeftContainer = styled.div`
   align-items: center;
 
   & img {
-    animation: 1.5s ${zoomInTadaAnimation};
+    animation: 1.5s ${zoomInPulseAnimation};
     width: 350px;
     height: 350px;
   }

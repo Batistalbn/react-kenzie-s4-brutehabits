@@ -17,7 +17,7 @@ export default createGlobalStyle`
       height: 100%;
       background-repeat: no-repeat;
       background-attachment: fixed;
-  }
+      font-family: 'Merriweather', serif;  }
 
   
 :root{
