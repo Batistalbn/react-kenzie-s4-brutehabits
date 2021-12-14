@@ -28,7 +28,6 @@ const Register = () => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-  console.log(errors);
 
   const history = useHistory();
 
