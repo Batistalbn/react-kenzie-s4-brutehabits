@@ -1,6 +1,8 @@
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import LandingPage from "../pages/LandingPage";
 import Register from "../pages/Register";
+import Login from "../pages/Login";
+import Route from "./route";
 
 function Routes() {
   return (
@@ -9,9 +11,9 @@ function Routes() {
         <LandingPage />
       </Route>
       <Route path="/register">
-        <Register/>
+        <Register />
       </Route>
-      <Route path="/login"></Route>
+      <Route path="/login" component={Login} />
       <Route exact path="/dashboard/habits"></Route>
       <Route exact path="/dasboard/groups"></Route>
     </Switch>
