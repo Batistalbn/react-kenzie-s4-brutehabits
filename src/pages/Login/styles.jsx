@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { fadeInDown } from "react-animations";
+
+const fadeInDownAnimation = keyframes`${fadeInDown}`;
 
 export const FormContainer = styled.div`
+  animation: 1s ${fadeInDownAnimation};
   min-width: 320px;
   max-width: 380px;
   height: 100%;
