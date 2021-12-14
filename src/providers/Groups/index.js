@@ -6,6 +6,7 @@ export const GroupsContext = createContext();
 export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
   const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState("");
 
   const GroupsList = () => {
     api
@@ -16,18 +17,17 @@ export const GroupsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
+  // Mudar paginas
   const nextPage = () => {
     setPage(page + 1);
   };
-
   const previousPage = () => {
     if (page > 1) {
       setPage(page - 1);
     }
   };
 
-  const [filter, setFilter] = useState("");
-
+  // Filtrar grupos
   const handleClick = () => {
     api.get(`/groups/?search=${filter}`).then((response) => {
       console.log(response.data.results);
@@ -35,13 +35,23 @@ export const GroupsProvider = ({ children }) => {
     });
   };
 
-  useEffect(() => {
-    GroupsList();
-  }, [page]);
+  const Subscriptions = () => {
+    api.get("/groups/subscriptions/").then((response) => {
+      setGroups(response.data.results);
+    });
+  };
 
   return (
     <GroupsContext.Provider
-      value={{ groups, nextPage, previousPage, page, setFilter, handleClick }}
+      value={{
+        groups,
+        nextPage,
+        previousPage,
+        page,
+        setFilter,
+        handleClick,
+        Subscriptions,
+      }}
     >
       {children}
     </GroupsContext.Provider>
