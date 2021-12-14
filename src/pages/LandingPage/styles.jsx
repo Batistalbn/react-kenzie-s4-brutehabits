@@ -39,7 +39,7 @@ export const RightContainer = styled.div`
   }
 
   & div {
-    width: 40%;
+    width: 65%;
     display: flex;
     justify-content: space-around;
   }
