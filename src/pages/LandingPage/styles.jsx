@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { merge, zoomIn, tada, fadeInRight } from "react-animations";
+
+const mergeZoomInTada = merge(zoomIn, tada);
+const zoomInTadaAnimation = keyframes`${mergeZoomInTada}`;
+const fadeInRightAnimation = keyframes`${fadeInRight}`;
 
 export const Container = styled.main`
   display: flex;
@@ -16,12 +21,14 @@ export const LeftContainer = styled.div`
   align-items: center;
 
   & img {
+    animation: 1.5s ${zoomInTadaAnimation};
     width: 350px;
     height: 350px;
   }
 `;
 
 export const RightContainer = styled.div`
+  animation: 1s ${fadeInRightAnimation};
   width: 50vw;
   height: 100vh;
   color: var(--white);
