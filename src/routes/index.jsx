@@ -5,6 +5,7 @@ import LandingPage from "../pages/LandingPage";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Route from "./route";
+import DashboardHabits from "../pages/DashboardHabits";
 
 function Routes() {
   return (
@@ -15,8 +16,12 @@ function Routes() {
       <Route path="/register">
         <Register />
       </Route>
-      <Route path="/login" component={Login} />
-      <Route exact path="/dashboard/habits"></Route>
+      <Route path="/login">
+        <Login />
+      </Route>
+      <Route exact path="/dashboard/habits">
+        <DashboardHabits />
+      </Route>
       <Route exact path="/dasboard/groups">
         <GroupsList />
       </Route>
