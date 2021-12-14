@@ -16,7 +16,9 @@ function Routes() {
       <Route path="/register">
         <Register />
       </Route>
-      <Route path="/login" component={Login} />
+      <Route path="/login">
+        <Login />
+      </Route>
       <Route exact path="/dashboard/habits">
         <DashboardHabits />
       </Route>

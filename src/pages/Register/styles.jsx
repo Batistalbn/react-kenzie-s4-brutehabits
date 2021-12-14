@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { fadeInUp } from "react-animations";
+
+const fadeInUpAnimation = keyframes`${fadeInUp}`;
 
 export const FormContainer = styled.div`
   min-width: 320px;
@@ -59,6 +62,7 @@ export const FormContainer = styled.div`
 `;
 
 export const FlexContainer = styled.div`
+  animation: 1s ${fadeInUpAnimation};
   position: absolute;
   top: 50%;
   right: 50%;
