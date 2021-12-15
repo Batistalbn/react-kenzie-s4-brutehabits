@@ -4,6 +4,7 @@ import { fadeInUp } from "react-animations";
 const fadeInUpAnimation = keyframes`${fadeInUp}`;
 
 export const FormContainer = styled.div`
+  animation: 1s ${fadeInUpAnimation};
   min-width: 320px;
   max-width: 400px;
   height: 100%;
@@ -62,7 +63,6 @@ export const FormContainer = styled.div`
 `;
 
 export const FlexContainer = styled.div`
-  animation: 1s ${fadeInUpAnimation};
   position: absolute;
   top: 50%;
   right: 50%;
