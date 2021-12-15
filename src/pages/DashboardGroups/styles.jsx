@@ -20,13 +20,33 @@ export const ContainerMain = styled.main`
     height: 100%;
     background: var(--red);
     border-radius: 40px;
+    padding: 1%;
   }
+`;
 
-  & div {
-    animation: 1s ${fadeInRightAnimation};
-    width: 30%;
-    height: 100%;
-    background: var(--red);
-    border-radius: 40px;
+export const DisplayGroups = styled.div`
+  animation: 1s ${fadeInRightAnimation};
+  width: 30%;
+  height: 100%;
+  background: var(--red);
+  border-radius: 40px;
+`;
+
+export const HeaderGroups = styled.div`
+  border: 2px solid blue;
+  color: var(--white);
+  display: flex;
+  margin-top: 10px;
+  div {
+    display: flex;
+  }
+`;
+
+export const Pages = styled.div`
+  display: flex;
+  justify-content: center;
+  border: 2px solid green;
+  p {
+    margin: 0px 10px;
   }
 `;
