@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Route from "./route";
 import DashboardHabits from "../pages/DashboardHabits";
+import DashboardGroups from "../pages/DashboardGroups";
 
 function Routes() {
   return (
@@ -23,7 +24,7 @@ function Routes() {
         <DashboardHabits />
       </Route>
       <Route exact path="/dasboard/groups">
-        <GroupsList />
+        <DashboardGroups />
       </Route>
       <Route exact path="/dasboard/groups/:id">
         <Group />
