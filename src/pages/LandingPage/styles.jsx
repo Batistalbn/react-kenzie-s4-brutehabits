@@ -22,8 +22,8 @@ export const LeftContainer = styled.div`
 
   & img {
     animation: 1.5s ${zoomInPulseAnimation};
-    width: 350px;
-    height: 350px;
+    width: 450px;
+    height: 300px;
   }
 `;
 
