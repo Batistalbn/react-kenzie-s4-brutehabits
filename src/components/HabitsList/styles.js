@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const CardContainer = styled.div`
   width: 100%;
-  max-width: 500px;
+  max-width: 350px;
   min-width: 300px;
   max-height: 180px;
   display: flex;
@@ -25,7 +25,7 @@ export const CardContainer = styled.div`
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 11px 24px;
+    padding: 11px 24px 11px 15px;
     span {
       align-items: center;
       justify-content: flex-end;

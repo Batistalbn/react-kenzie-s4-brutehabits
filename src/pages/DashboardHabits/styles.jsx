@@ -23,6 +23,7 @@ export const ContainerMain = styled.main`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    overflow: auto;
   }
 `;
 
@@ -34,5 +35,12 @@ export const SectionHeader = styled.div`
   align-items: center;
   h2 {
     margin: 20px 40px;
+    color: var(--white);
   }
+`;
+
+export const ContainerAdd = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;
