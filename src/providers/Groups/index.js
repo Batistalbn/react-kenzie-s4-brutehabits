@@ -6,6 +6,7 @@ import api from "../../services/api";
 export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
+  const token = localStorage.getItem("@BrutalHabits:token");
   const [groups, setGroups] = useState([]);
   const [displayGroup, setDisplayGroup] = useState([]);
   const [page, setPage] = useState(1);
@@ -58,23 +59,18 @@ export const GroupsProvider = ({ children }) => {
 
   // inscrever
   const Subscribe = (groupId) => {
-    const toke = JSON.parse(localStorage.getItem("@BrutalHabits:token")) || "";
+    const token = JSON.parse(localStorage.getItem("@BrutalHabits:token")) || "";
 
     api
-      .post(
-        `/groups/${groupId}/subscribe/`,
-        {},
 
-        {
-          headers: {
-            Authorization: `Bearer ${toke}`,
-          },
-        }
-      )
+      .post(`/groups/${groupId}/subscribe`, "", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then(() => {
         toast.success("Inscrição feita com sucesso");
       })
       .catch((err) => {
+        console.log("error subscribe", err);
         toast.error("Você já faz parte desse grupo");
       });
   };
