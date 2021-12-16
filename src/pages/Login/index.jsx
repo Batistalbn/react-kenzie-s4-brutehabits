@@ -43,7 +43,7 @@ const Login = () => {
 
         getUserData(token);
 
-        //return history.push("/dashboard/habits/");
+        return history.push("/dashboard/habits/");
       })
       .catch((err) => {
         toast.error("Combinação username/senha errada");

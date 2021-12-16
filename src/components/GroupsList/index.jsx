@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { GroupsContext } from "../../providers/Groups";
 
 const GroupsList = () => {
-  const { groups, Unsubscribe, accessGroup } = useContext(GroupsContext);
+  const { groups, accessGroup } = useContext(GroupsContext);
 
   return (
     <div>
@@ -18,14 +18,6 @@ const GroupsList = () => {
           <p>{element.category}</p>
           <p>{element.description}</p>
           <span>Membros: {element.users_on_group?.length}</span>
-
-          <button
-            onClick={() => {
-              Unsubscribe(element.id);
-            }}
-          >
-            Sair
-          </button>
         </div>
       ))}
     </div>
