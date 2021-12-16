@@ -3,10 +3,10 @@ import { GroupsContext } from "../../providers/Groups";
 
 const GroupsList = () => {
   const { groups, accessGroup } = useContext(GroupsContext);
-
+  console.log("groups", groups);
   return (
     <div>
-      {groups.map((element) => (
+      {groups?.map((element) => (
         <div key={element.id}>
           <h3
             onClick={() => {

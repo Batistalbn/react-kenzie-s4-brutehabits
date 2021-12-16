@@ -6,7 +6,6 @@ import api from "../../services/api";
 export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
-  const token = localStorage.getItem("@BrutalHabits:token");
   const [groups, setGroups] = useState([]);
   const [displayGroup, setDisplayGroup] = useState([]);
   const [page, setPage] = useState(1);
@@ -22,9 +21,9 @@ export const GroupsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  // useEffect(() => {
-  //   GroupsList();
-  // }, [page]);
+  useEffect(() => {
+    GroupsList();
+  }, [page]);
 
   // Mudar paginas
   const nextPage = () => {
@@ -38,8 +37,8 @@ export const GroupsProvider = ({ children }) => {
 
   // Filtrar grupos
   const handleClick = () => {
+    console.log("filter", filter);
     api.get(`/groups/?search=${filter}`).then((response) => {
-      console.log(response.data.results);
       setGroups(response.data.results);
     });
   };
@@ -48,47 +47,37 @@ export const GroupsProvider = ({ children }) => {
   const Subscriptions = () => {
     api
       .get("/groups/subscriptions/", {
-        header: {
+        headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
-        setGroups(response.data.results);
+        setGroups(response.data);
       });
   };
 
   // inscrever
   const Subscribe = (groupId) => {
     const token = JSON.parse(localStorage.getItem("@BrutalHabits:token")) || "";
-
     api
 
-      .post(`/groups/${groupId}/subscribe`, "", {
+      .post(`/groups/${groupId}/subscribe/`, "", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
         toast.success("Inscrição feita com sucesso");
       })
       .catch((err) => {
-        console.log("error subscribe", err);
         toast.error("Você já faz parte desse grupo");
       });
   };
 
   // Sair
   const Unsubscribe = (groupId) => {
-    console.log(token);
-
     api
-      .delete(
-        `/groups/1063/unsubscribe/`,
-
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      .delete(`/groups/${groupId}/unsubscribe/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then(() => {
         toast.success("Você saiu do grupo");
       })

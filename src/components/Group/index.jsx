@@ -14,8 +14,6 @@ const Group = () => {
     useContext(ActivitiesContext);
   const { token } = useContext(UserContext);
 
-  console.log(displayGroup);
-
   const getGoals = () => {
     api
       .get(`/goals/?group=${displayGroup.id}`, {
@@ -66,8 +64,8 @@ const Group = () => {
           <p>Metas</p>
           <AddButton />
         </div>
-        {goals.map((element) => (
-          <div>
+        {goals?.map((element) => (
+          <div key={element.id}>
             <div>
               <p>{element.title}</p>
               <button>Editar</button>
@@ -91,8 +89,8 @@ const Group = () => {
           <p>Atividades</p>
           <AddButton />
         </div>
-        {activities.map((element) => (
-          <div>
+        {activities?.map((element) => (
+          <div key={element.id}>
             <div>
               <p>{element.title}</p>
               <button>Editar</button>
