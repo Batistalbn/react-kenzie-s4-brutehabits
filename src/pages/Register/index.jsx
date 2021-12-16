@@ -38,12 +38,10 @@ const Register = () => {
       .post("/users/", data)
       .then((response) => {
         toast.success("Sucesso ao criar usuário");
-        console.log(response);
         return history.push("/login");
       })
       .catch((err) => {
         toast.error("Username existente");
-        console.log(err);
       });
   };
 
