@@ -9,6 +9,12 @@ export const Container = styled.main`
   display: flex;
   width: 100vw;
   height: 100vh;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    margin: 25%;
+    margin-top: 15px;
+  }
 `;
 
 export const LeftContainer = styled.div`
@@ -24,6 +30,9 @@ export const LeftContainer = styled.div`
     animation: 1.5s ${zoomInPulseAnimation};
     width: 350px;
     height: 350px;
+  }
+
+  @media screen and (max-width: 768px) {
   }
 `;
 
@@ -53,5 +62,11 @@ export const RightContainer = styled.div`
 
   & button {
     margin-top: 150px;
+  }
+  @media screen and (max-width: 768px) {
+    button {
+      margin-top: 15px;
+      margin-bottom: 30px;
+    }
   }
 `;
