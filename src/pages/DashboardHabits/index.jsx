@@ -7,6 +7,8 @@ import HabitsList from "../../components/HabitsList";
 
 const DashboardHabits = () => {
   const { userData } = useContext(UserContext);
+
+  console.log(userData);
   return (
     <>
       <Header name={userData.username} />

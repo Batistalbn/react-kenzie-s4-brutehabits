@@ -6,10 +6,8 @@ import Modal from "../Modal";
 import {
   CardBody,
   CardContainer,
-  CardHeader,
   CardImage,
   CardInfo,
-  Container,
   AddHabit,
 } from "./styles";
 
