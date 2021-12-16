@@ -17,18 +17,6 @@ const DashboardHabits = () => {
 
   const [open, setOpen] = useState(false);
 
-  const schema = yup.object().shape({});
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
-
-  const onSubmitFunction = (data) => {
-    HabitCreate(data);
-  };
-
   return (
     <>
       <Header name={userData.username} />

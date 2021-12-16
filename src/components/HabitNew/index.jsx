@@ -1,4 +1,4 @@
-import { Container } from "./style";
+import { Container } from "./styles";
 import { Modal as Standart } from "@mui/material";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -29,7 +29,7 @@ const HabitNew = () => {
 
   return (
     <>
-      <FlexContainer>
+      {/* <FlexContainer>
         <FormHeader>
           <img src={BrutalHabits} alt="BrutalHabits logo" />
         </FormHeader>
@@ -92,7 +92,7 @@ const HabitNew = () => {
             </Button>
           </Box>
         </FormContainer>
-      </FlexContainer>
+      </FlexContainer> */}
     </>
   );
 };
