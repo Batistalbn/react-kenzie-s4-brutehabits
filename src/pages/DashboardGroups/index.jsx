@@ -41,7 +41,7 @@ const DashboardGroups = () => {
                 placeholder="Pesquisar"
                 onChange={(e) => setFilter(e.target.value)}
               />
-              <button onSubmit={handleClick}>Pesquisar</button>
+              <button onClick={handleClick}>Pesquisar</button>
             </div>
           </HeaderGroups>
           <GroupsList />
