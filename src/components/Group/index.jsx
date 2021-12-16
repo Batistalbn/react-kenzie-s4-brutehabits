@@ -8,11 +8,13 @@ import AddButton from "../AddButton";
 import api from "../../services/api";
 
 const Group = () => {
-  const { displayGroup, Subscribe } = useContext(GroupsContext);
+  const { displayGroup, Subscribe, Unsubscribe } = useContext(GroupsContext);
   const { goals, setGoals, DeleteGoals } = useContext(GoalsContext);
   const { activities, setActivities, DeleteActivities } =
     useContext(ActivitiesContext);
   const { token } = useContext(UserContext);
+
+  console.log(displayGroup);
 
   const getGoals = () => {
     api
@@ -106,6 +108,14 @@ const Group = () => {
           </div>
         ))}
       </div>
+
+      <button
+        onClick={() => {
+          Unsubscribe(displayGroup.id);
+        }}
+      >
+        Sair
+      </button>
     </div>
   );
 };
