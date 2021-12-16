@@ -1,6 +1,5 @@
 import { Switch } from "react-router-dom";
 import Group from "../components/Group";
-import GroupsList from "../components/GroupsList";
 import LandingPage from "../pages/LandingPage";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
