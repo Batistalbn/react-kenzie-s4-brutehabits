@@ -26,13 +26,14 @@ export const LeftContainer = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media screen and (max-width: 768px) {
+    margin: 0px;
+    margin-top: 15%;
+  }
   & img {
     animation: 1.5s ${zoomInPulseAnimation};
     width: 350px;
     height: 350px;
-  }
-
-  @media screen and (max-width: 768px) {
   }
 `;
 
@@ -64,6 +65,8 @@ export const RightContainer = styled.div`
     margin-top: 150px;
   }
   @media screen and (max-width: 768px) {
+    font-size: 16px;
+    margin: 0px;
     button {
       margin-top: 15px;
       margin-bottom: 30px;
