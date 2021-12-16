@@ -16,17 +16,23 @@ export const ContainerMain = styled.main`
 
   & section {
     animation: 1s ${fadeInLeftAnimation};
-    width: 60%;
+    width: 100%;
     height: 100%;
     background: var(--red);
-    border-radius: 40px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
+`;
 
-  & div {
-    animation: 1s ${fadeInRightAnimation};
-    width: 30%;
-    height: 100%;
-    background: var(--red);
-    border-radius: 40px;
+export const SectionHeader = styled.div`
+  display: flex;
+  justify-content: left;
+  height: 4rem;
+
+  align-items: center;
+  h2 {
+    margin: 20px 40px;
   }
 `;

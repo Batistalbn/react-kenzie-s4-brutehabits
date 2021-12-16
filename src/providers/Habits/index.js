@@ -47,7 +47,7 @@ export const HabitsProvider = ({ children }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
-        toast.sucess("Habito cadastrado com sucesso");
+        toast.success("Habito cadastrado com sucesso");
       })
       .catch((err) => toast.err("Erro ao cadastrar Habito, tente novamente"));
   };
@@ -59,15 +59,17 @@ export const HabitsProvider = ({ children }) => {
       .patch(`/habits/${habitId}/`, data, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then(() => toast.sucess("Habito atualizado com sucesso"))
+      .then(() => toast.success("Habito atualizado com sucesso"))
       .catch((err) => toast.err("Falha ao atualizar , tente novamente"));
   };
   // Deletar um Habito
 
   const HabitDelete = (habitId) => {
     api
-      .delete(`/habits/${habitId}/`)
-      .then(() => toast.sucess("Habito foi removido"));
+      .delete(`/habits/${habitId}/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(() => toast.success("Habito foi removido"));
   };
 
   return (

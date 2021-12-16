@@ -1,5 +1,5 @@
 import AddButton from "../../components/AddButton";
-import { ContainerMain } from "./styles";
+import { ContainerMain, SectionHeader } from "./styles";
 import Header from "../../components/Header";
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
@@ -12,16 +12,12 @@ const DashboardHabits = () => {
       <Header name={userData.username} />
       <ContainerMain>
         <section>
-          <div>
-            <h3>Habitos</h3>
+          <SectionHeader>
+            <h2>Habitos</h2>
             <AddButton />
-            Search
-          </div>
-          Componente Hábitos
-        </section>
-        <div>
+          </SectionHeader>
           <HabitsList />
-        </div>
+        </section>
       </ContainerMain>
     </>
   );

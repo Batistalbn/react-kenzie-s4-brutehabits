@@ -16,6 +16,9 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: Column;
   margin-top: 20px;
+  margin-left: 20px;
+  background-color: var(--white);
+  border-radius: 8px;
   div {
     display: flex;
     flex: 1;
@@ -23,6 +26,14 @@ export const CardContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 11px 24px;
+    span {
+      align-items: center;
+      justify-content: flex-end;
+
+      button + button {
+        margin-left: 10px;
+      }
+    }
   }
 `;
 
@@ -55,4 +66,5 @@ export const AddHabit = styled.div`
   display: grid;
   align-items: center;
   justify-content: center;
+  color: var(--white);
 `;
