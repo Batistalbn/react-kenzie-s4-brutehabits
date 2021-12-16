@@ -23,7 +23,7 @@ const DashboardGroups = () => {
     <>
       <Header />
       <ContainerMain>
-        <section>
+        <section style={{ overflow: "auto" }}>
           <HeaderGroups>
             <div>
               <h3>Grupos</h3>
