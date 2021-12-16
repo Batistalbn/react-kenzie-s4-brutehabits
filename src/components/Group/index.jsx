@@ -14,8 +14,6 @@ const Group = () => {
     useContext(ActivitiesContext);
   const { token } = useContext(UserContext);
 
-  console.log(displayGroup);
-
   const getGoals = () => {
     api
       .get(`/goals/?group=${displayGroup.id}`, {

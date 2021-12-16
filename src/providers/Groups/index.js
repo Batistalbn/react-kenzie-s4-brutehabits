@@ -6,7 +6,6 @@ import api from "../../services/api";
 export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
-  const token = localStorage.getItem("@BrutalHabits:token");
   const [groups, setGroups] = useState([]);
   const [displayGroup, setDisplayGroup] = useState([]);
   const [page, setPage] = useState(1);
