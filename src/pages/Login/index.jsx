@@ -14,7 +14,7 @@ import { UserContext } from "../../providers/User";
 
 const Login = () => {
   const formSchema = yup.object().shape({
-    username: yup.string().required("E-mail obrigatória"),
+    username: yup.string().required("Username obrigatório"),
     password: yup.string().required("Senha obrigatória"),
   });
 
@@ -43,7 +43,7 @@ const Login = () => {
 
         getUserData(token);
 
-        return history.push("/dashboard/habits/");
+        return history.push("/dashboard/groups/");
       })
       .catch((err) => {
         toast.error("Combinação username/senha errada");
@@ -92,7 +92,6 @@ const Login = () => {
               Não tem conta? Cadastre-se <Link to="/register">aqui</Link>
             </span>
           </div>
-
           <Button type="submit" variant="contained" color="secondary">
             <HiOutlineArrowRight size="30px" />
           </Button>

@@ -6,13 +6,13 @@ export const Container = styled(Card)`
   margin: 10px auto;
   padding: 0 30px;
   display: flex;
-
   align-items: center;
   justify-content: space-between;
+
   .profile {
-    width: 60px;
-    height: 60px;
-    border-radius: 20px;
+    
+    height: 75px;
+    
   }
   div {
     display: flex;
@@ -30,6 +30,7 @@ export const Container = styled(Card)`
     border-radius: 0;
     outline: none;
     padding: 5px;
+    margin-right: 20px;
     :hover {
       background-color: var(--platinum);
     }
@@ -38,4 +39,5 @@ export const Container = styled(Card)`
     height: 75px;
     align-self: self-end;
   }
+
 `;
