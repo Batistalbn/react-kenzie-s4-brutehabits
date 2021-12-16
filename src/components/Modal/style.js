@@ -1,8 +1,11 @@
 import { Card } from "@mui/material";
 import { styled } from "@mui/system";
 export const Container = styled(Card)`
-  width: 500px;
-  max-width: 90vw;
-  border-radius: 20px;
-  margin: 10vh auto;
+  width: 320px;
+  border-radius: 5px;
+  padding:20px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
 `;
