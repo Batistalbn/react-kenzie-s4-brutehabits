@@ -12,6 +12,7 @@ export const GroupsProvider = ({ children }) => {
   const [displayGroup, setDisplayGroup] = useState([]);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState("");
+  const { token } = useContext(UserContext);
 
   const GroupsList = () => {
     api
