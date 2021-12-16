@@ -3,7 +3,6 @@ import { GroupsContext } from "../../providers/Groups";
 
 const GroupsList = () => {
   const { groups, accessGroup } = useContext(GroupsContext);
-  console.log("groups", groups);
   return (
     <div>
       {groups?.map((element) => (
@@ -16,8 +15,6 @@ const GroupsList = () => {
             {element.name}
           </h3>
           <p>{element.category}</p>
-          <p>{element.description}</p>
-          <span>Membros: {element.users_on_group?.length}</span>
         </div>
       ))}
     </div>

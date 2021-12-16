@@ -14,10 +14,13 @@ const Group = () => {
     useContext(ActivitiesContext);
   const { token } = useContext(UserContext);
 
+  console.log("displayGroup", displayGroup);
   const getGoals = () => {
     api
-      .get(`/goals/?group=${displayGroup.id}`, {
-        Authorization: `Bearer ${token}`,
+      .get(`/goals/?group=${displayGroup.id}/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
       .then((response) => {
         setGoals(response.data.results);
@@ -26,8 +29,10 @@ const Group = () => {
 
   const getActivities = () => {
     api
-      .get(`/activities/?group=${displayGroup.id}`, {
-        Authorization: `Bearer ${token}`,
+      .get(`/activities/?group=${displayGroup.id}/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
       .then((response) => {
         setActivities(response.data.results);
@@ -64,13 +69,12 @@ const Group = () => {
           <p>Metas</p>
           <AddButton />
         </div>
-        {goals?.map((element) => (
+        {displayGroup.goals?.map((element) => (
           <div key={element.id}>
             <div>
               <p>{element.title}</p>
               <button>Editar</button>
             </div>
-            <p>{element.title}</p>
             <p>{element.difficulty}</p>
             <p>{element.achieved}</p>
             <button
@@ -89,7 +93,7 @@ const Group = () => {
           <p>Atividades</p>
           <AddButton />
         </div>
-        {activities?.map((element) => (
+        {displayGroup.activities?.map((element) => (
           <div key={element.id}>
             <div>
               <p>{element.title}</p>
