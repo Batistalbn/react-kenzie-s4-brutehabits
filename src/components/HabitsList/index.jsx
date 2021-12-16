@@ -1,5 +1,13 @@
 import { useContext } from "react";
 import { HabitsContext } from "../../providers/Habits";
+import {
+  CardBody,
+  CardContainer,
+  CardHeader,
+  CardImage,
+  CardInfo,
+  Container,
+} from "./styles";
 
 const HabitsList = () => {
   const { habits } = useContext(HabitsContext);
@@ -12,8 +20,10 @@ const HabitsList = () => {
             <button>Hamburguer Menu</button>
           </CardHeader>
           <CardBody>
-            <figcaption>{habit.category}</figcaption>
-            <img src="" alt="Categoria"></img>
+            <CardImage>
+              <figcaption>{habit.category}</figcaption>
+              <img src="" alt="Categoria"></img>
+            </CardImage>
             <CardInfo>
               <p>Dificuldade : {habit.difficulty}</p>
               <p>Frequencia : {habit.frequency}</p>

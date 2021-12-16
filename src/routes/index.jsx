@@ -1,5 +1,4 @@
 import { Switch } from "react-router-dom";
-import Group from "../components/Group";
 import LandingPage from "../pages/LandingPage";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
@@ -22,11 +21,8 @@ function Routes() {
       <Route exact path="/dashboard/habits">
         <DashboardHabits />
       </Route>
-      <Route exact path="/dasboard/groups">
+      <Route exact path="/dashboard/groups">
         <DashboardGroups />
-      </Route>
-      <Route exact path="/dasboard/groups/:id">
-        <Group />
       </Route>
     </Switch>
   );

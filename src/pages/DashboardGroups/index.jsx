@@ -1,15 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GroupsContext } from "../../providers/Groups";
 import AddButton from "../../components/AddButton";
 import Button from "../../components/Button";
 import PageButton from "../../components/PageButton";
-
 import { ContainerMain, HeaderGroups, DisplayGroups, Pages } from "./styles";
 import Header from "../../components/Header";
 import GroupsList from "../../components/GroupsList";
 import Group from "../../components/Group";
-
+import GroupSignup from "../../components/GroupSignup";
+import Modal from "../../components/Modal";
 const DashboardGroups = () => {
+  const [open, setOpen] = useState(false);
   const {
     Subscriptions,
     setFilter,
@@ -26,7 +27,11 @@ const DashboardGroups = () => {
           <HeaderGroups>
             <div>
               <h3>Grupos</h3>
-              <AddButton />
+              <AddButton
+                onClick={() => {
+                  setOpen(true);
+                }}
+              />
               <Button onClick={Subscriptions} variant="contained" thin>
                 Meus grupos
               </Button>
@@ -36,7 +41,7 @@ const DashboardGroups = () => {
                 placeholder="Pesquisar"
                 onChange={(e) => setFilter(e.target.value)}
               />
-              <button onSubmit={handleClick}>Pesquisar</button>
+              <button onClick={handleClick}>Pesquisar</button>
             </div>
           </HeaderGroups>
           <GroupsList />
@@ -50,6 +55,9 @@ const DashboardGroups = () => {
           <Group />
         </DisplayGroups>
       </ContainerMain>
+      <Modal open={open} setOpen={setOpen}>
+        <GroupSignup setOpes={setOpen} />
+      </Modal>
     </>
   );
 };
