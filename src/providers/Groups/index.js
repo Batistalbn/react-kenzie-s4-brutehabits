@@ -21,10 +21,6 @@ export const GroupsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    GroupsList();
-  }, [page]);
-
   // Mudar paginas
   const nextPage = () => {
     setPage(page + 1);
@@ -89,6 +85,10 @@ export const GroupsProvider = ({ children }) => {
   const accessGroup = (group) => {
     setDisplayGroup(group);
   };
+
+  useEffect(() => {
+    GroupsList();
+  }, [page]);
 
   return (
     <GroupsContext.Provider

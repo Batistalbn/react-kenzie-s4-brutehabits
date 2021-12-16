@@ -22,18 +22,19 @@ const Activities = ({ element }) => {
       </div>
       {displayGroup.activities?.map((element) => (
         <div key={element.id}>
-          <div>
-            <p>{element.title}</p>
-            <button>Editar</button>
-          </div>
+          <p>{element.title}</p>
           <p>{element.realization_time}</p>
-          <button
-            onClick={() => {
-              DeleteActivities(element.id);
-            }}
-          >
-            Deletar Meta
-          </button>
+          <div>
+            <button>Editar</button>
+
+            <button
+              onClick={() => {
+                DeleteActivities(element.id);
+              }}
+            >
+              Deletar Meta
+            </button>
+          </div>
         </div>
       ))}
       <Modal open={open} setOpen={setOpen}>
