@@ -64,5 +64,24 @@ export const HabitsProvider = ({ children }) => {
       .then(() => toast.sucess("Habito foi removido"));
   };
 
-  return <HabitsContext.Provider value={{}}>{children}</HabitsContext.Provider>;
+  return (
+    <HabitsContext.Provider
+      value={{
+        habits,
+        setHabits,
+        habit,
+        setHabit,
+        filtered,
+        setFiltered,
+        newHabit,
+        setNewHabit,
+        HabitsList,
+        HabitCreate,
+        HabitUpdate,
+        HabitDelete,
+      }}
+    >
+      {children}
+    </HabitsContext.Provider>
+  );
 };

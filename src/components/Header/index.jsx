@@ -4,7 +4,6 @@ import BrutalHabits from "../../assets/BrutalHabits_500.png";
 const Header = ({ img = BrutalHabits, name = "Sir Gregor Clegane" }) => (
   <Container>
     <div>
-      <img className="profile" src={img} alt="" />
       <p>Bem-vindo {name} !</p>
     </div>
     <div>
