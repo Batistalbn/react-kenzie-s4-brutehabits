@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import Button from "../Button";
 import { TextField } from "@mui/material";
 
-const GroupSignup = () => {
+const GroupSignup = (setOpen) => {
   const formSchema = yup.object().shape({
     name: yup.string().required("Campo obrigatório"),
     description: yup.string().required("Campo obrigatório"),
@@ -31,13 +31,17 @@ const GroupSignup = () => {
       .catch((err) => {
         toast.error("Username existente");
         console.log(err);
+        setOpen(false);
       });
   };
 
   return (
     <div>
       <h3>Cadastro de Grupo</h3>
-      <form onSubmit={handleSubmit(onHandleSubmit)}>
+      <form
+        onSubmit={handleSubmit(onHandleSubmit)}
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         <TextField
           {...register("name")}
           color="secondary"

@@ -1,7 +1,7 @@
 import AddIcon from "@mui/icons-material/Add";
 import Container from "./style";
-const AddButton = () => (
-  <Container variant="contained">
+const AddButton = ({ ...rest }) => (
+  <Container variant="contained" {...rest}>
     <AddIcon fontSize="inherit" />
   </Container>
 );
