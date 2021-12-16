@@ -4,7 +4,6 @@ import { UserContext } from "../providers/User";
 
 const Route = ({ isPrivate = false, component: Component, ...rest }) => {
   const { token } = useContext(UserContext);
-  console.log(token)
 
   return (
     <ReactRoute
