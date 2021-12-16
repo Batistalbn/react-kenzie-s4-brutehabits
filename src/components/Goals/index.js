@@ -18,7 +18,7 @@ const Goals = () => {
           onClick={() => {
             setOpen(true);
           }}
-        />{" "}
+        />
       </div>
       {displayGroup.goals?.map((element) => (
         <div key={element.id}>

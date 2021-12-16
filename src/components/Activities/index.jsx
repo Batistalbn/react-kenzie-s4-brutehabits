@@ -1,17 +1,24 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ActivitiesContext } from "../../providers/Activities";
 import { GroupsContext } from "../../providers/Groups";
 import AddButton from "../AddButton";
+import Modal from "../Modal";
+import ActivitiesSignup from "../ActivitiesSignup";
 
 const Activities = ({ element }) => {
   const { DeleteActivities } = useContext(ActivitiesContext);
   const { displayGroup } = useContext(GroupsContext);
+  const [open, setOpen] = useState(false);
 
   return (
     <div>
       <div>
         <p>Atividades</p>
-        <AddButton />
+        <AddButton
+          onClick={() => {
+            setOpen(true);
+          }}
+        />
       </div>
       {displayGroup.activities?.map((element) => (
         <div key={element.id}>
@@ -29,6 +36,9 @@ const Activities = ({ element }) => {
           </button>
         </div>
       ))}
+      <Modal open={open} setOpen={setOpen}>
+        <ActivitiesSignup setOpes={setOpen} />
+      </Modal>
     </div>
   );
 };
