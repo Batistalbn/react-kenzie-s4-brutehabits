@@ -38,7 +38,10 @@ const GroupSignup = (setOpen) => {
   return (
     <div>
       <h3>Cadastro de Grupo</h3>
-      <form onSubmit={handleSubmit(onHandleSubmit)}>
+      <form
+        onSubmit={handleSubmit(onHandleSubmit)}
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         <TextField
           {...register("name")}
           color="secondary"
