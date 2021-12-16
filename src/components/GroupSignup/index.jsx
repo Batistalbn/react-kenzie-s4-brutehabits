@@ -25,12 +25,10 @@ const GroupSignup = (setOpen) => {
     api
       .post("/groups/", data)
       .then((response) => {
-        console.log(response);
         toast.success("Sucesso ao criar usuário");
       })
       .catch((err) => {
         toast.error("Username existente");
-        console.log(err);
         setOpen(false);
       });
   };
