@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
+import { UserContext } from "../User";
 import toast from "react-hot-toast";
 import api from "../../services/api";
 
@@ -10,6 +11,7 @@ export const GroupsProvider = ({ children }) => {
   const [displayGroup, setDisplayGroup] = useState([]);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState("");
+  const { token } = useContext(UserContext);
 
   const GroupsList = () => {
     api
@@ -20,9 +22,9 @@ export const GroupsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    GroupsList();
-  }, [page]);
+  // useEffect(() => {
+  //   GroupsList();
+  // }, [page]);
 
   // Mudar paginas
   const nextPage = () => {
@@ -44,14 +46,23 @@ export const GroupsProvider = ({ children }) => {
 
   // Meus grupos
   const Subscriptions = () => {
-    api.get("/groups/subscriptions/").then((response) => {
-      setGroups(response.data.results);
-    });
+    api
+      .get("/groups/subscriptions/", {
+        header: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setGroups(response.data.results);
+      });
   };
 
   // inscrever
   const Subscribe = (groupId) => {
+    const token = JSON.parse(localStorage.getItem("@BrutalHabits:token")) || "";
+
     api
+
       .post(`/groups/${groupId}/subscribe`, "", {
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -66,8 +77,18 @@ export const GroupsProvider = ({ children }) => {
 
   // Sair
   const Unsubscribe = (groupId) => {
+    console.log(token);
+
     api
-      .delete(`/groups/${groupId}/unsubscribe`)
+      .delete(
+        `/groups/1063/unsubscribe/`,
+
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then(() => {
         toast.success("Você saiu do grupo");
       })
