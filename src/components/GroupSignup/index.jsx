@@ -5,8 +5,11 @@ import api from "../../services/api";
 import toast from "react-hot-toast";
 import Button from "../Button";
 import { TextField } from "@mui/material";
+import { useContext } from "react";
+import { UserContext } from "../../providers/User";
 
 const GroupSignup = (setOpen) => {
+  const { token } = useContext(UserContext);
   const formSchema = yup.object().shape({
     name: yup.string().required("Campo obrigatório"),
     description: yup.string().required("Campo obrigatório"),
@@ -22,15 +25,19 @@ const GroupSignup = (setOpen) => {
   });
 
   const onHandleSubmit = (data) => {
+    console.log(data);
     api
-      .post("/groups/", data)
+      .post("/groups/", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
-        console.log(response);
         toast.success("Sucesso ao criar usuário");
+        setOpen(false);
       })
       .catch((err) => {
         toast.error("Username existente");
-        console.log(err);
         setOpen(false);
       });
   };
