@@ -3,6 +3,7 @@ import { ContainerMain } from "./styles";
 import Header from "../../components/Header";
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
+import HabitsList from "../../components/HabitsList";
 
 const DashboardHabits = () => {
   const { userData } = useContext(UserContext);
@@ -18,7 +19,9 @@ const DashboardHabits = () => {
           </div>
           Componente Hábitos
         </section>
-        <div>Listagem Hábitos</div>
+        <div>
+          <HabitsList />
+        </div>
       </ContainerMain>
     </>
   );

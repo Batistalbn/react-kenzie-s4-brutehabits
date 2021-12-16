@@ -7,31 +7,39 @@ import {
   CardImage,
   CardInfo,
   Container,
+  AddHabit,
 } from "./styles";
 
 const HabitsList = () => {
   const { habits } = useContext(HabitsContext);
   return (
-    <Container>
-      {habits.map((habit) => (
-        <CardContainer key={habit.id}>
-          <CardHeader>
-            <h3>{habit.title}</h3>
-            <button>Hamburguer Menu</button>
-          </CardHeader>
-          <CardBody>
-            <CardImage>
-              <figcaption>{habit.category}</figcaption>
-              <img src="" alt="Categoria"></img>
-            </CardImage>
-            <CardInfo>
-              <p>Dificuldade : {habit.difficulty}</p>
-              <p>Frequencia : {habit.frequency}</p>
-            </CardInfo>
-          </CardBody>
-        </CardContainer>
-      ))}
-    </Container>
+    <>
+      {habits?.length > 0 ? (
+        habits.map((habit) => (
+          <CardContainer key={habit.id}>
+            <div>
+              <h3>{habit.title}</h3>
+              <button>Delete</button>
+              <button>Edit</button>
+            </div>
+            <CardBody>
+              <CardImage>
+                <figcaption>{habit.category}</figcaption>
+                <img src="" alt="Categoria"></img>
+              </CardImage>
+              <CardInfo>
+                <p>Dificuldade : {habit.difficulty}</p>
+                <p>Frequencia : {habit.frequency}</p>
+              </CardInfo>
+            </CardBody>
+          </CardContainer>
+        ))
+      ) : (
+        <AddHabit>
+          <h3>Seus habitos serao exibidos aqui! </h3>
+        </AddHabit>
+      )}
+    </>
   );
 };
 

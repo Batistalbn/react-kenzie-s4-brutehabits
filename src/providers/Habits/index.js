@@ -1,11 +1,12 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import api from "../../services/api";
+import { UserContext } from "../User";
 
 export const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
-  const token = localStorage.getItem("@BrutalHabits:token") || "";
+  const { token } = useContext(UserContext);
   const [habits, setHabits] = useState([]);
   const [habit, setHabit] = useState([]);
   const [filtered, setFiltered] = useState("");
@@ -21,11 +22,16 @@ export const HabitsProvider = ({ children }) => {
 
   // Listar Habitos
   const HabitsList = () => {
+    console.log(token);
     api
       .get(`/habits/personal/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => setHabits(response.data.results))
+      .then((response) => {
+        setHabits(response.data);
+        console.log(response);
+      })
+
       .catch((err) => console.log(err));
   };
 
