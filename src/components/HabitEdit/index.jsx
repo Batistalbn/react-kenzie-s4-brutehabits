@@ -8,6 +8,7 @@ import React from "react";
 import Button from "../Button";
 import { HabitsContext } from "../../providers/Habits";
 import { useContext } from "react";
+import { Select } from "../HabitNew/styles";
 
 const HabitEdit = ({ openEdit, setOpenEdit }) => {
   const { HabitUpdate, habitID, setHabitId } = useContext(HabitsContext);
@@ -71,30 +72,51 @@ const HabitEdit = ({ openEdit, setOpenEdit }) => {
               error={errors.title?.message}
               helperText={errors.title?.message}
             />
-            <TextField
-              color="secondary"
-              label="Categoria"
-              variant="filled"
+
+            <Select
+              placeholder="Categorias"
               {...register("category")}
-              error={errors.email?.message}
-              helperText={errors.email?.message}
-            />
-            <TextField
-              color="secondary"
-              label="Dificuldade"
-              variant="filled"
+              error={errors.category?.message}
+              style={{ textAlign: "left" }}
+            >
+              <option value="" disabled defaultValue hidden>
+                Escolha uma categoria
+              </option>
+              {["SelfCare", "Lazer", "Trabalho", "Hobbies"].map((value) => (
+                <option key={value}>{value}</option>
+              ))}
+            </Select>
+            <Select
+              placeholder="Dificuldade"
               {...register("difficulty")}
               error={errors.difficulty?.message}
-              helperText={errors.difficulty?.message}
-            />
-            <TextField
-              color="secondary"
-              label="Frequencia"
-              variant="filled"
+              style={{ textAlign: "left" }}
+            >
+              <option value="" disabled defaultValue hidden>
+                Qual o nivel de Dificuldade ?
+              </option>
+              {["Fácil", "Médio", "Difícil"].map((value) => (
+                <option key={value}>{value}</option>
+              ))}
+            </Select>
+            <Select
+              placeholder="Frequencia"
               {...register("frequency")}
               error={errors.frequency?.message}
-              helperText={errors.frequency?.message}
-            />
+              style={{ textAlign: "left" }}
+            >
+              <option value="" disabled defaultValue hidden>
+                Qual a frequencia ?
+              </option>
+              {[
+                "Diariamente",
+                "Menos de 3x semana",
+                "3 ou mais vezes na semana",
+                "1x por Semana",
+              ].map((value) => (
+                <option key={value}>{value}</option>
+              ))}
+            </Select>
             <Button
               type="submit"
               variant="contained"

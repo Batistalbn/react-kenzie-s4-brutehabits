@@ -12,6 +12,11 @@ import {
   AddHabit,
   CardHeader,
 } from "./styles";
+import { ReactComponent as Hobbies } from "../../assets/Hobbies.svg";
+import { ReactComponent as Lazer } from "../../assets/Lazer.svg";
+import { ReactComponent as SelfCare } from "../../assets/Selfcare.svg";
+import { ReactComponent as Trabalho } from "../../assets/Work.svg";
+import { ReactComponent as Default } from "../../assets/bug-solid.svg";
 
 const HabitsList = () => {
   const { habits, HabitDelete, HabitsList, setHabitID } =
@@ -27,6 +32,26 @@ const HabitsList = () => {
   const handleEdit = async (habitId) => {
     await setHabitID(habitId);
     setOpenEdit(true);
+  };
+
+  const categoryImg = (category) => {
+    switch (category) {
+      case "Hobbies":
+        <Hobbies></Hobbies>;
+        break;
+      case "Lazer":
+        <Lazer></Lazer>;
+        break;
+      case "SelfCare":
+        <SelfCare></SelfCare>;
+        break;
+      case "Trabalho":
+        <Trabalho></Trabalho>;
+        break;
+      default:
+        <Default />;
+        break;
+    }
   };
 
   useEffect(() => {
@@ -50,9 +75,7 @@ const HabitsList = () => {
               </span>
             </CardHeader>
             <CardBody>
-              <CardImage>
-                <img src="" alt="Categoria"></img>
-              </CardImage>
+              <CardImage>{categoryImg(habit.category)}</CardImage>
               <CardInfo>
                 <p>Dificuldade :</p>
                 <span>{habit.difficulty}</span>
