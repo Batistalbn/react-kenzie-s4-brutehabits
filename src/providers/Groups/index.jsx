@@ -11,6 +11,7 @@ export const GroupsProvider = ({ children }) => {
   const [displayGroup, setDisplayGroup] = useState([]);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState("");
+  const { token } = useContext(UserContext);
 
   const GroupsList = () => {
     api
@@ -18,7 +19,6 @@ export const GroupsProvider = ({ children }) => {
       .then((response) => {
         setGroups(response.data.results);
       })
-      .catch((err) => console.log(err));
   };
 
   // Mudar paginas
@@ -33,7 +33,6 @@ export const GroupsProvider = ({ children }) => {
 
   // Filtrar grupos
   const handleClick = () => {
-    console.log("filter", filter);
     api.get(`/groups/?search=${filter}`).then((response) => {
       setGroups(response.data.results);
     });

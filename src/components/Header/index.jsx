@@ -22,7 +22,6 @@ const Header = () => {
   const open = Boolean(anchorEl);
   const [openModal, setOpenModal] = useState(false);
   const location = useLocation();
-  console.log(location.pathname);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

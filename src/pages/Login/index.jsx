@@ -31,7 +31,6 @@ const Login = () => {
   const { getUserData } = useContext(UserContext);
 
   const onSubmitFunction = (data) => {
-    console.log(data);
 
     api
       .post("/sessions/", data)
@@ -43,11 +42,11 @@ const Login = () => {
 
         getUserData(token);
 
-        return history.push("/dashboard/groups/");
+        history.push('/dashboard/habits')
+
       })
       .catch((err) => {
         toast.error("Combinação username/senha errada");
-        console.log(err.message);
       });
   };
 
