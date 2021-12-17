@@ -100,7 +100,12 @@ const GoalsSignup = (setOpen) => {
           error={errors.how_much_achieved?.message}
           helperText={errors.how_much_achieved?.message}
         />
-        <Button type="submit" variant="contained" color="secondary">
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+          thin="false"
+        >
           Cadastrar
         </Button>{" "}
       </Box>

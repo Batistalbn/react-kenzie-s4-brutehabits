@@ -104,7 +104,12 @@ const Register = () => {
             </span>
           </div>
 
-          <Button type="submit" variant="contained" color="secondary">
+          <Button
+            thin="false"
+            type="submit"
+            variant="contained"
+            color="secondary"
+          >
             <HiOutlineArrowRight size="30px" />
           </Button>
         </Box>

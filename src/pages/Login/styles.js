@@ -1,10 +1,13 @@
 import styled, { keyframes } from "styled-components";
 import { fadeInDown } from "react-animations";
+import { fadeInUp } from "react-animations";
+
+const fadeInUpAnimation = keyframes`${fadeInUp}`;
 
 const fadeInDownAnimation = keyframes`${fadeInDown}`;
 
 export const FormContainer = styled.div`
-  animation: 1s ${fadeInDownAnimation};
+  animation: 1s ${fadeInUpAnimation};
   min-width: 320px;
   max-width: 380px;
   height: 100%;
@@ -54,6 +57,7 @@ export const FormContainer = styled.div`
 
   span {
     color: var(--white);
+    font-size: 14px;
   }
 
   a {

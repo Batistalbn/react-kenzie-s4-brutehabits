@@ -31,7 +31,6 @@ const Login = () => {
   const { getUserData } = useContext(UserContext);
 
   const onSubmitFunction = (data) => {
-
     api
       .post("/sessions/", data)
       .then((response) => {
@@ -42,8 +41,7 @@ const Login = () => {
 
         getUserData(token);
 
-        history.push('/dashboard/habits')
-
+        history.push("/dashboard/habits");
       })
       .catch((err) => {
         toast.error("Combinação username/senha errada");
@@ -91,7 +89,12 @@ const Login = () => {
               Não tem conta? Cadastre-se <Link to="/register">aqui</Link>
             </span>
           </div>
-          <Button type="submit" variant="contained" color="secondary">
+          <Button
+            thin="false"
+            type="submit"
+            variant="contained"
+            color="secondary"
+          >
             <HiOutlineArrowRight size="30px" />
           </Button>
         </Box>

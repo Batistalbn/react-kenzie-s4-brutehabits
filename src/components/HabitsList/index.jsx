@@ -10,12 +10,19 @@ import {
   CardImage,
   CardInfo,
   AddHabit,
+  CardHeader,
 } from "./styles";
+import Hobbies from "../../assets/Hobbies.png";
+import Lazer from "../../assets/Lazer.png";
+import SelfCare from "../../assets/SelfCare.png";
+import Trabalo from "../../assets/Trabalho.png";
+import Default from "../../assets/Default.png";
 
 const HabitsList = () => {
-  const { habits, HabitDelete, HabitsList } = useContext(HabitsContext);
+  const { habits, HabitDelete, HabitsList, setHabitID } =
+    useContext(HabitsContext);
 
-  const [habitId, setHabitId] = useState([]);
+  const [openEdit, setOpenEdit] = useState(false);
 
   const handleClose = (habitId) => {
     HabitDelete(habitId);
@@ -23,22 +30,40 @@ const HabitsList = () => {
   };
 
   const handleEdit = async (habitId) => {
-    await setHabitId(habitId);
-    setOpen(true);
+    await setHabitID(habitId);
+    setOpenEdit(true);
   };
+
+  // const categoryImg = (category) => {
+  //   switch (category) {
+  //     case "Hobbies":
+  //       <Hobbies style={{ color: "red" }}></Hobbies>;
+  //       break;
+  //     case "Lazer":
+  //       <Lazer style={{ color: "red" }}></Lazer>;
+  //       break;
+  //     case "SelfCare":
+  //       <SelfCare style={{ color: "red" }}></SelfCare>;
+  //       break;
+  //     case "Trabalho":
+  //       <Trabalho style={{ color: "red" }}></Trabalho>;
+  //       break;
+  //     default:
+  //       <Default style={{ color: "red" }} />;
+  //       break;
+  //   }
+  // };
 
   useEffect(() => {
     HabitsList();
   }, [habits]);
-
-  const [open, setOpen] = useState(false);
 
   return (
     <>
       {habits?.length > 0 ? (
         habits.map((habit) => (
           <CardContainer key={habit.id}>
-            <div>
+            <CardHeader>
               <h3>{habit.title}</h3>
               <span>
                 <EditButton onClick={() => handleEdit(habit.id)}>
@@ -48,15 +73,16 @@ const HabitsList = () => {
                   Delete
                 </CloseButton>
               </span>
-            </div>
+            </CardHeader>
             <CardBody>
               <CardImage>
-                <img src="" alt="Categoria"></img>
-                <figcaption>{habit.category}</figcaption>
+                <img src={habit.category} alt={habit.category} />
               </CardImage>
               <CardInfo>
-                <p>Dificuldade : {habit.difficulty}</p>
-                <p>Frequencia : {habit.frequency}</p>
+                <p>Dificuldade :</p>
+                <span>{habit.difficulty}</span>
+                <p>Frequencia :</p>
+                <span>{habit.frequency}</span>
               </CardInfo>
             </CardBody>
           </CardContainer>
@@ -64,12 +90,13 @@ const HabitsList = () => {
       ) : (
         <AddHabit>
           <CardBody>
-            <h3>Seus Habitos serao exibidos aqui</h3>
+            <h3>Seus hábitos serão exibidos aqui</h3>
+
           </CardBody>
         </AddHabit>
       )}
-      <Modal open={open} setOpen={setOpen}>
-        <HabitEdit habitId={habitId} open={open} setOpen={setOpen} />
+      <Modal open={openEdit} setOpen={setOpenEdit}>
+        <HabitEdit open={openEdit} setOpen={setOpenEdit} />
       </Modal>
     </>
   );

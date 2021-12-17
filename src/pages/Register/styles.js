@@ -55,6 +55,7 @@ export const FormContainer = styled.div`
   span {
     padding: 20px;
     color: var(--white);
+    font-size: 14px;
   }
 
   a {

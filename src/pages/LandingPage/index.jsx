@@ -20,8 +20,12 @@ const LandingPage = () => {
         </h2>
         <h2>a forma como se organiza</h2>
         <div>
-          <Button onClick={() => history.push("/login")}>Entrar</Button>
-          <Button onClick={() => history.push("/register")}>Registrar</Button>
+          <Button thin="false" onClick={() => history.push("/login")}>
+            Entrar
+          </Button>
+          <Button thin="false" onClick={() => history.push("/register")}>
+            Registrar
+          </Button>
         </div>
       </RightContainer>
     </Container>
