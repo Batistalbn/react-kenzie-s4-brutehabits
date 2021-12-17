@@ -57,7 +57,6 @@ export const HeaderTitle = styled.div`
 export const Pages = styled.div`
   display: flex;
   justify-content: center;
-  border: 2px solid green;
   p {
     margin: 0px 10px;
   }
