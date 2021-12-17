@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { HabitsContext } from "../../providers/Habits";
 import CloseButton from "../CloseButton";
 import EditButton from "../EditButton";
+import HabitEdit from "../HabitEdit";
 import Modal from "../Modal";
 import {
   CardBody,
@@ -14,12 +15,24 @@ import {
 const HabitsList = () => {
   const { habits, HabitDelete, HabitsList } = useContext(HabitsContext);
 
+  const [habitId, setHabitId] = useState([]);
+
   const handleClose = (habitId) => {
     HabitDelete(habitId);
     HabitsList();
   };
 
+  const handleEdit = async (habitId) => {
+    await setHabitId(habitId);
+    setOpen(true);
+  };
+
+  useEffect(() => {
+    HabitsList();
+  }, [habits]);
+
   const [open, setOpen] = useState(false);
+
   return (
     <>
       {habits?.length > 0 ? (
@@ -28,10 +41,12 @@ const HabitsList = () => {
             <div>
               <h3>{habit.title}</h3>
               <span>
+                <EditButton onClick={() => handleEdit(habit.id)}>
+                  Edit
+                </EditButton>
                 <CloseButton onClick={() => handleClose(habit.id)}>
                   Delete
                 </CloseButton>
-                <EditButton onClick={() => setOpen(true)}>Edit</EditButton>
               </span>
             </div>
             <CardBody>
@@ -54,7 +69,7 @@ const HabitsList = () => {
         </AddHabit>
       )}
       <Modal open={open} setOpen={setOpen}>
-        {<h1>TESTE</h1>}
+        <HabitEdit habitId={habitId} open={open} setOpen={setOpen} />
       </Modal>
     </>
   );

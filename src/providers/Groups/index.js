@@ -6,18 +6,24 @@ import api from "../../services/api";
 export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
-
-  const { token } = useContext(UserContext);
   const [groups, setGroups] = useState([]);
   const [displayGroup, setDisplayGroup] = useState([]);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState("");
+  const { token } = useContext(UserContext);
 
   const GroupsList = () => {
-    api.get(`/groups/?page=${page}`).then((response) => {
-      setGroups(response.data.results);
-    });
+    api
+      .get(`/groups/?page=${page}`)
+      .then((response) => {
+        setGroups(response.data.results);
+      })
+      .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    GroupsList();
+  }, [page]);
 
   // Mudar paginas
   const nextPage = () => {
@@ -31,6 +37,7 @@ export const GroupsProvider = ({ children }) => {
 
   // Filtrar grupos
   const handleClick = () => {
+    console.log("filter", filter);
     api.get(`/groups/?search=${filter}`).then((response) => {
       setGroups(response.data.results);
     });
@@ -82,10 +89,6 @@ export const GroupsProvider = ({ children }) => {
   const accessGroup = (group) => {
     setDisplayGroup(group);
   };
-
-  useEffect(() => {
-    GroupsList();
-  }, [page]);
 
   return (
     <GroupsContext.Provider

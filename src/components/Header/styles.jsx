@@ -9,10 +9,14 @@ export const Container = styled(Card)`
   align-items: center;
   justify-content: space-between;
 
+  img {
+    max-width: 100px;
+    height: auto;
+    object-fit: contain;
+  }
+
   .profile {
-    
     height: 75px;
-    
   }
   div {
     display: flex;
@@ -39,5 +43,4 @@ export const Container = styled(Card)`
     height: 75px;
     align-self: self-end;
   }
-
 `;

@@ -1,8 +1,8 @@
 import { Container } from "./styles";
 import { Button as MuiButton } from "@mui/material";
 import { useHistory } from "react-router-dom";
-import BrutalHabits from "../../assets/BrutalHabits_500.png";
-import { useContext } from "react";
+import BrutalHabits from "../../assets/BrutalHabits_900.png";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/User";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -17,11 +17,13 @@ import { useLocation } from "react-router";
 
 const Header = () => {
   const history = useHistory();
-  const { userData, logout, editProfile } = useContext(UserContext);
+  const { logout, editProfile } = useContext(UserContext);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [openModal, setOpenModal] = useState(false);
   const location = useLocation();
+  const userData =
+    JSON.parse(localStorage.getItem("@BrutalHabits:userData")) || "";
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -59,7 +61,7 @@ const Header = () => {
   return (
     <Container>
       <div>
-        <p>Bem-vindo/a, {userData.username}</p>
+        <p>Bem-vindo/a, {userData?.username}</p>
       </div>
       <div>
         <MuiButton
@@ -129,12 +131,7 @@ const Header = () => {
             helperText={errors.email?.message}
           />
 
-          <Button
-            thin
-            type="submit"
-            variant="contained"
-            color="secondary"
-          >
+          <Button thin type="submit" variant="contained" color="secondary">
             Modificar
           </Button>
         </Box>
