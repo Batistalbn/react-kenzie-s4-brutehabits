@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TextField, Box } from "@mui/material";
-import { FormContainer, FlexContainer, FormHeader } from "./styles";
+import { FormContainer, FlexContainer, FormHeader, Select } from "./styles";
 import BrutalHabits from "../../assets/BrutalHabits_900.png";
 import React, { useState } from "react";
 import Button from "../Button";
@@ -71,32 +71,43 @@ const HabitNew = () => {
               error={errors.title?.message}
               helperText={errors.title?.message}
             />
-            <TextField
-              color="secondary"
-              label="Categoria"
-              variant="filled"
+
+            <Select
+              placeholder="Categorias"
               {...register("category")}
-              error={errors.email?.message}
-              helperText={errors.email?.message}
-            />
-            <select
+              error={errors.category?.message}
+              style={{ textAlign: "left" }}
+            >
+              <option value="" disabled selected hidden>
+                Escolha uma categoria
+              </option>
+              {["Auto Cuidado", "Lazer", "Trabalho", "Hobbies"].map((value) => (
+                <option key={value}>{value}</option>
+              ))}
+            </Select>
+            <Select
               placeholder="Dificuldade"
               {...register("difficulty")}
               error={errors.difficulty?.message}
               style={{ textAlign: "left" }}
             >
-              {["", "Fácil", "Médio", "Difícil"].map((value) => (
+              <option value="" disabled selected hidden>
+                Qual o nivel de Dificuldade ?
+              </option>
+              {["Fácil", "Médio", "Difícil"].map((value) => (
                 <option key={value}>{value}</option>
               ))}
-            </select>
-            <select
+            </Select>
+            <Select
               placeholder="Frequencia"
               {...register("frequency")}
               error={errors.frequency?.message}
               style={{ textAlign: "left" }}
             >
+              <option value="" disabled selected hidden>
+                Qual a frequencia ?
+              </option>
               {[
-                "",
                 "Diariamente",
                 "Menos de 3x semana",
                 "3 ou mais vezes na semana",
@@ -104,7 +115,7 @@ const HabitNew = () => {
               ].map((value) => (
                 <option key={value}>{value}</option>
               ))}
-            </select>
+            </Select>
 
             <Button
               type="submit"

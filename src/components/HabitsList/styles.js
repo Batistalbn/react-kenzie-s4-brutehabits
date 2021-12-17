@@ -20,47 +20,60 @@ export const CardContainer = styled.div`
   margin-right: 20px;
   background-color: var(--white);
   border-radius: 8px;
-  div {
-    display: flex;
-    flex: 1;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 11px 24px 11px 15px;
-    span {
-      align-items: center;
-      justify-content: flex-end;
+`;
 
-      button + button {
-        margin-left: 10px;
-      }
+export const CardHeader = styled.div`
+  display: flex;
+  flex: 1;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 24px 11px 15px;
+  span {
+    align-items: center;
+    justify-content: flex-end;
+
+    button + button {
+      margin-left: 10px;
     }
   }
 `;
-
-// export const CardHeader = styled.div`
-//   display: flex;
-//   flex: 1;
-//   width: 100%;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 11px 24px;
-// `;
-
 export const CardBody = styled.div`
   display: flex;
+  flex: min-content;
   width: 100%;
 `;
 
 export const CardImage = styled.div`
+  width: 30%;
   display: grid;
   align-items: center;
   justify-content: center;
+  img {
+    width: 80px;
+    height: 80px;
+  }
 `;
 
 export const CardInfo = styled.div`
+  width: 70%;
   display: flex;
-  flex-direction: Column;
+  flex-direction: column;
+  padding: 15px;
+
+  && p {
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  && span {
+    text-align: left;
+    margin-left: 10px;
+    font-weight: normal;
+    font-size: 14px;
+  }
 `;
 
 export const AddHabit = styled.div`

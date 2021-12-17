@@ -10,6 +10,7 @@ import {
   CardImage,
   CardInfo,
   AddHabit,
+  CardHeader,
 } from "./styles";
 
 const HabitsList = () => {
@@ -17,6 +18,7 @@ const HabitsList = () => {
     useContext(HabitsContext);
 
   const [openEdit, setOpenEdit] = useState(false);
+
   const handleClose = (habitId) => {
     HabitDelete(habitId);
     HabitsList();
@@ -36,7 +38,7 @@ const HabitsList = () => {
       {habits?.length > 0 ? (
         habits.map((habit) => (
           <CardContainer key={habit.id}>
-            <div>
+            <CardHeader>
               <h3>{habit.title}</h3>
               <span>
                 <EditButton onClick={() => handleEdit(habit.id)}>
@@ -46,15 +48,16 @@ const HabitsList = () => {
                   Delete
                 </CloseButton>
               </span>
-            </div>
+            </CardHeader>
             <CardBody>
               <CardImage>
                 <img src="" alt="Categoria"></img>
-                <figcaption>{habit.category}</figcaption>
               </CardImage>
               <CardInfo>
-                <p>Dificuldade : {habit.difficulty}</p>
-                <p>Frequencia : {habit.frequency}</p>
+                <p>Dificuldade :</p>
+                <span>{habit.difficulty}</span>
+                <p>Frequencia :</p>
+                <span>{habit.frequency}</span>
               </CardInfo>
             </CardBody>
           </CardContainer>
@@ -67,7 +70,7 @@ const HabitsList = () => {
         </AddHabit>
       )}
       <Modal open={openEdit} setOpen={setOpenEdit}>
-        <HabitEdit />
+        <HabitEdit open={openEdit} setOpen={setOpenEdit} />
       </Modal>
     </>
   );
