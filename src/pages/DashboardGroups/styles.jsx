@@ -33,12 +33,24 @@ export const DisplayGroups = styled.div`
 `;
 
 export const HeaderGroups = styled.div`
-  border: 2px solid blue;
   color: var(--white);
   display: flex;
+  justify-content: space-between;
   margin-top: 10px;
   div {
     display: flex;
+  }
+`;
+
+export const HeaderTitle = styled.div`
+  h3 {
+    text-align: bottom;
+    line-height: 50px;
+  }
+
+  button {
+    margin-left: 10px;
+    margin-top: 10px;
   }
 `;
 
