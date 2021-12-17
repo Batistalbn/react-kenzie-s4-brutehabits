@@ -4,13 +4,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { TextField, Box } from "@mui/material";
 import { FormContainer, FlexContainer, FormHeader } from "./styles";
 import BrutalHabits from "../../assets/BrutalHabits_900.png";
-import React, { useState } from "react";
+import React from "react";
 import Button from "../Button";
 import { HabitsContext } from "../../providers/Habits";
 import { useContext } from "react";
 
-const HabitNew = () => {
-  const { HabitCreate } = useContext(HabitsContext);
+const HabitEdit = ({ habitId, open, setOpen }) => {
+  const { HabitUpdate } = useContext(HabitsContext);
   const userData =
     JSON.parse(localStorage.getItem("@BrutalHabits:userData")) || "";
 
@@ -38,10 +38,9 @@ const HabitNew = () => {
     },
   });
 
-  const [open, setOpen] = useState(false);
-
-  const onSubmitFunction = (data) => {
-    HabitCreate(data);
+  const onSubmitFunction = (habitId, data) => {
+    console.log(data);
+    HabitUpdate(habitId, data);
     setOpen(false);
   };
 
@@ -60,10 +59,10 @@ const HabitNew = () => {
                 m: 1,
               },
             }}
-            // noValidate
+            noValidate
             autoComplete="on"
           >
-            <h1>Novo Habito</h1>
+            <h1>Edite seu Habito</h1>
             <TextField
               color="secondary"
               className="title"
@@ -97,7 +96,12 @@ const HabitNew = () => {
               error={errors.frequency?.message}
               helperText={errors.frequency?.message}
             />
-            <Button type="submit" variant="contained" color="secondary" thin>
+            <Button
+              type="submit"
+              variant="contained"
+              color="secondary"
+              thin="true"
+            >
               Registrar
             </Button>
           </Box>
@@ -107,4 +111,4 @@ const HabitNew = () => {
   );
 };
 
-export default HabitNew;
+export default HabitEdit;

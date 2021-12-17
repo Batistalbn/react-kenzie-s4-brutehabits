@@ -20,9 +20,10 @@ export const HabitsProvider = ({ children }) => {
     user: 0,
   });
 
+  const [open, setOpen] = useState(false);
+
   // Listar Habitos
   const HabitsList = () => {
-    console.log(token);
     api
       .get(`/habits/personal/`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -48,18 +49,18 @@ export const HabitsProvider = ({ children }) => {
       .then(() => {
         toast.success("Habito cadastrado com sucesso");
       })
-      .catch((err) => toast.err("Erro ao cadastrar Habito, tente novamente"));
+      .catch((err) => console.log("Erro ao cadastrar Habito, tente novamente"));
   };
 
   // Atualizar um Habito
 
   const HabitUpdate = (habitId, data) => {
     api
-      .patch(`/habits/${habitId}/`, data, {
+      .patch(`/habits/${habitId.user}/`, data, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => toast.success("Habito atualizado com sucesso"))
-      .catch((err) => toast.err("Falha ao atualizar , tente novamente"));
+      .catch((err) => toast.error("Falha ao atualizar , tente novamente"));
   };
   // Deletar um Habito
 
