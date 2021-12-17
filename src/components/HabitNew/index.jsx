@@ -78,7 +78,7 @@ const HabitNew = () => {
               error={errors.category?.message}
               style={{ textAlign: "left" }}
             >
-              <option value="" disabled selected hidden>
+              <option value="" disabled defaultValue hidden>
                 Escolha uma categoria
               </option>
               {["Auto Cuidado", "Lazer", "Trabalho", "Hobbies"].map((value) => (
@@ -91,7 +91,7 @@ const HabitNew = () => {
               error={errors.difficulty?.message}
               style={{ textAlign: "left" }}
             >
-              <option value="" disabled selected hidden>
+              <option value="" disabled defaultValue hidden>
                 Qual o nivel de Dificuldade ?
               </option>
               {["Fácil", "Médio", "Difícil"].map((value) => (
@@ -104,7 +104,7 @@ const HabitNew = () => {
               error={errors.frequency?.message}
               style={{ textAlign: "left" }}
             >
-              <option value="" disabled selected hidden>
+              <option value="" disabled defaultValue hidden>
                 Qual a frequencia ?
               </option>
               {[

@@ -12,11 +12,11 @@ import {
   AddHabit,
   CardHeader,
 } from "./styles";
-import { ReactComponent as Hobbies } from "../../assets/Hobbies.svg";
-import { ReactComponent as Lazer } from "../../assets/Lazer.svg";
-import { ReactComponent as SelfCare } from "../../assets/Selfcare.svg";
-import { ReactComponent as Trabalho } from "../../assets/Work.svg";
-import { ReactComponent as Default } from "../../assets/bug-solid.svg";
+import Hobbies from "../../assets/Hobbies.png";
+import Lazer from "../../assets/Lazer.png";
+import SelfCare from "../../assets/SelfCare.png";
+import Trabalo from "../../assets/Trabalho.png";
+import Default from "../../assets/Default.png";
 
 const HabitsList = () => {
   const { habits, HabitDelete, HabitsList, setHabitID } =
@@ -34,25 +34,25 @@ const HabitsList = () => {
     setOpenEdit(true);
   };
 
-  const categoryImg = (category) => {
-    switch (category) {
-      case "Hobbies":
-        <Hobbies></Hobbies>;
-        break;
-      case "Lazer":
-        <Lazer></Lazer>;
-        break;
-      case "SelfCare":
-        <SelfCare></SelfCare>;
-        break;
-      case "Trabalho":
-        <Trabalho></Trabalho>;
-        break;
-      default:
-        <Default />;
-        break;
-    }
-  };
+  // const categoryImg = (category) => {
+  //   switch (category) {
+  //     case "Hobbies":
+  //       <Hobbies style={{ color: "red" }}></Hobbies>;
+  //       break;
+  //     case "Lazer":
+  //       <Lazer style={{ color: "red" }}></Lazer>;
+  //       break;
+  //     case "SelfCare":
+  //       <SelfCare style={{ color: "red" }}></SelfCare>;
+  //       break;
+  //     case "Trabalho":
+  //       <Trabalho style={{ color: "red" }}></Trabalho>;
+  //       break;
+  //     default:
+  //       <Default style={{ color: "red" }} />;
+  //       break;
+  //   }
+  // };
 
   useEffect(() => {
     HabitsList();
@@ -75,7 +75,9 @@ const HabitsList = () => {
               </span>
             </CardHeader>
             <CardBody>
-              <CardImage>{categoryImg(habit.category)}</CardImage>
+              <CardImage>
+                <img src={habit.category} alt={habit.category} />
+              </CardImage>
               <CardInfo>
                 <p>Dificuldade :</p>
                 <span>{habit.difficulty}</span>
