@@ -26,7 +26,7 @@ export const HabitsProvider = ({ children }) => {
 
   useEffect(() => {
     HabitsList();
-  }, []);
+  }, [habits]);
 
   //Cadastrar novo habito
 

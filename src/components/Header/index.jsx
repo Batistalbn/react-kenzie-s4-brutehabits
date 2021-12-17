@@ -131,7 +131,12 @@ const Header = () => {
             helperText={errors.email?.message}
           />
 
-          <Button thin type="submit" variant="contained" color="secondary">
+          <Button
+            thin="true"
+            type="submit"
+            variant="contained"
+            color="secondary"
+          >
             Modificar
           </Button>
         </Box>

@@ -77,7 +77,12 @@ const GroupSignup = (setOpen) => {
           error={errors.category?.message}
           helperText={errors.category?.message}
         />
-        <Button type="submit" variant="contained" color="secondary">
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+          thin="false"
+        >
           Cadastrar
         </Button>
       </form>

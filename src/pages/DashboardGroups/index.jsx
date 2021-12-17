@@ -39,7 +39,7 @@ const DashboardGroups = () => {
                 }}
               />
             </HeaderTitle>
-            <Button onClick={Subscriptions} variant="contained" thin>
+            <Button onClick={Subscriptions} variant="contained" thin="true">
               Meus grupos
             </Button>
 

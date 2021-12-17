@@ -26,9 +26,9 @@ const HabitsList = () => {
     setOpen(true);
   };
 
-  useEffect(() => {
-    HabitsList();
-  }, [habits]);
+  // useEffect(() => {
+  //   HabitsList();
+  // }, [habits]);
 
   const [open, setOpen] = useState(false);
 
