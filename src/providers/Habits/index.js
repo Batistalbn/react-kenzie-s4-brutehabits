@@ -6,22 +6,11 @@ import { UserContext } from "../User";
 export const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
-  const { token } = useContext(UserContext);
+  const token = JSON.parse(localStorage.getItem("@BrutalHabits:token")) || "";
   const [habits, setHabits] = useState([]);
   const [habit, setHabit] = useState([]);
   const [filtered, setFiltered] = useState("");
-  const [newHabit, setNewHabit] = useState({
-    title: "",
-    category: "",
-    difficulty: "",
-    frequency: "",
-    achieved: false,
-    how_much_achieved: 0,
-    user: 0,
-  });
-
-  const [open, setOpen] = useState(false);
-
+  const [habitID, setHabitID] = useState([]);
   // Listar Habitos
   const HabitsList = () => {
     api
@@ -49,14 +38,14 @@ export const HabitsProvider = ({ children }) => {
       .then(() => {
         toast.success("Habito cadastrado com sucesso");
       })
-      .catch((err) => console.log("Erro ao cadastrar Habito, tente novamente"));
+      .catch((err) => toast.error("Erro ao cadastrar Habito, tente novamente"));
   };
 
   // Atualizar um Habito
 
-  const HabitUpdate = (habitId, data) => {
+  const HabitUpdate = (habit) => {
     api
-      .patch(`/habits/${habitId.user}/`, data, {
+      .patch(`/habits/${habitID}/`, habit, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => toast.success("Habito atualizado com sucesso"))
@@ -81,12 +70,12 @@ export const HabitsProvider = ({ children }) => {
         setHabit,
         filtered,
         setFiltered,
-        newHabit,
-        setNewHabit,
         HabitsList,
         HabitCreate,
         HabitUpdate,
         HabitDelete,
+        habitID,
+        setHabitID,
       }}
     >
       {children}

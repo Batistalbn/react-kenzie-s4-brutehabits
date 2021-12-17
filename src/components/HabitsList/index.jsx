@@ -13,9 +13,8 @@ import {
 } from "./styles";
 
 const HabitsList = () => {
-  const { habits, HabitDelete, HabitsList } = useContext(HabitsContext);
-
-  const [habitId, setHabitId] = useState([]);
+  const { habits, HabitDelete, HabitsList, setHabitID } =
+    useContext(HabitsContext);
 
   const handleClose = (habitId) => {
     HabitDelete(habitId);
@@ -23,7 +22,7 @@ const HabitsList = () => {
   };
 
   const handleEdit = async (habitId) => {
-    await setHabitId(habitId);
+    await setHabitID(habitId);
     setOpen(true);
   };
 
@@ -69,7 +68,7 @@ const HabitsList = () => {
         </AddHabit>
       )}
       <Modal open={open} setOpen={setOpen}>
-        <HabitEdit habitId={habitId} open={open} setOpen={setOpen} />
+        <HabitEdit />
       </Modal>
     </>
   );

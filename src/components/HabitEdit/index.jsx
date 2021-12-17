@@ -9,8 +9,8 @@ import Button from "../Button";
 import { HabitsContext } from "../../providers/Habits";
 import { useContext } from "react";
 
-const HabitEdit = ({ habitId, open, setOpen }) => {
-  const { HabitUpdate } = useContext(HabitsContext);
+const HabitEdit = () => {
+  const { HabitUpdate, habitID, setHabitId } = useContext(HabitsContext);
   const userData =
     JSON.parse(localStorage.getItem("@BrutalHabits:userData")) || "";
 
@@ -38,10 +38,8 @@ const HabitEdit = ({ habitId, open, setOpen }) => {
     },
   });
 
-  const onSubmitFunction = (habitId, data) => {
-    console.log(data);
-    HabitUpdate(habitId, data);
-    setOpen(false);
+  const onSubmitFunction = (data) => {
+    HabitUpdate(data);
   };
 
   return (
