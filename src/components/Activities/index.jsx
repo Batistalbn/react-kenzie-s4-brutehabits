@@ -2,8 +2,11 @@ import { useContext, useState } from "react";
 import { ActivitiesContext } from "../../providers/Activities";
 import { GroupsContext } from "../../providers/Groups";
 import AddButton from "../AddButton";
+import EditButton from "../EditButton";
+import CloseButton from "../CloseButton";
 import Modal from "../Modal";
 import ActivitiesSignup from "../ActivitiesSignup";
+
 
 const Activities = ({ element }) => {
   const { DeleteActivities } = useContext(ActivitiesContext);
@@ -25,16 +28,18 @@ const Activities = ({ element }) => {
           <p>{element.title}</p>
           <p>{element.realization_time}</p>
           <div>
-            <button>Editar</button>
 
-            <button
-              onClick={() => {
-                DeleteActivities(element.id);
-              }}
-            >
-              Deletar Meta
-            </button>
+            <p>{element.title}</p>
+            <EditButton>Editar</EditButton>
           </div>
+          <p>{element.realization_time}</p>
+          <CloseButton
+            onClick={() => {
+              DeleteActivities(element.id);
+            }}
+          >
+            Deletar Meta
+          </CloseButton>
         </div>
       ))}
       <Modal open={open} setOpen={setOpen}>

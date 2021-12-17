@@ -13,11 +13,9 @@ export const GroupsProvider = ({ children }) => {
   const [filter, setFilter] = useState("");
 
   const GroupsList = () => {
-    api
-      .get(`/groups/?page=${page}`)
-      .then((response) => {
-        setGroups(response.data.results);
-      })
+    api.get(`/groups/?page=${page}`).then((response) => {
+      setGroups(response.data.results);
+    });
   };
 
   // Mudar paginas
