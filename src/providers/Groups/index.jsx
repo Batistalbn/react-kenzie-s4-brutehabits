@@ -7,7 +7,6 @@ export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
   const { token } = useContext(UserContext);
-
   const [groups, setGroups] = useState([]);
   const [displayGroup, setDisplayGroup] = useState([]);
   const [page, setPage] = useState(1);
@@ -18,10 +17,6 @@ export const GroupsProvider = ({ children }) => {
       setGroups(response.data.results);
     });
   };
-
-  useEffect(() => {
-    GroupsList();
-  }, [page]);
 
   // Mudar paginas
   const nextPage = () => {
@@ -86,6 +81,10 @@ export const GroupsProvider = ({ children }) => {
   const accessGroup = (group) => {
     setDisplayGroup(group);
   };
+
+  useEffect(() => {
+    GroupsList();
+  }, [page]);
 
   return (
     <GroupsContext.Provider

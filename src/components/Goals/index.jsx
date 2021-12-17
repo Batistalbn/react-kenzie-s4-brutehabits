@@ -25,6 +25,9 @@ const Goals = () => {
       </div>
       {displayGroup.goals?.map((element) => (
         <div key={element.id}>
+          <p>{element.title}</p>
+          <p>{element.difficulty}</p>
+          <p>{element.achieved}</p>
           <div>
             <p>{element.title}</p>
             <EditButton>Editar</EditButton>
