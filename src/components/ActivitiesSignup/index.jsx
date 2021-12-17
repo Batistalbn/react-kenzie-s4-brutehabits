@@ -70,7 +70,12 @@ const ActivitiesSignup = (setOpen) => {
           helperText={errors.realization_time?.message}
         />
 
-        <Button type="submit" variant="contained" color="secondary">
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+          thin="false"
+        >
           Cadastrar
         </Button>
       </form>

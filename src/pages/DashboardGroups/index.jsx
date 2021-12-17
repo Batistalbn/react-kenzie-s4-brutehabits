@@ -39,7 +39,7 @@ const DashboardGroups = () => {
                 }}
               />
             </HeaderTitle>
-            <Button onClick={Subscriptions} variant="contained" thin>
+            <Button onClick={Subscriptions} variant="contained" thin="true">
               Meus grupos
             </Button>
 
@@ -63,7 +63,7 @@ const DashboardGroups = () => {
         </DisplayGroups>
       </ContainerMain>
       <Modal open={open} setOpen={setOpen}>
-        <GroupSignup setOpes={setOpen} />
+        <GroupSignup setOpen={setOpen} />
       </Modal>
     </>
   );

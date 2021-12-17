@@ -1,7 +1,6 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import api from "../../services/api";
-import { UserContext } from "../User";
 
 export const HabitsContext = createContext();
 
@@ -11,6 +10,7 @@ export const HabitsProvider = ({ children }) => {
   const [habit, setHabit] = useState([]);
   const [filtered, setFiltered] = useState("");
   const [habitID, setHabitID] = useState([]);
+  const [open, setOpen] = useState(false);
   // Listar Habitos
   const HabitsList = () => {
     api
@@ -26,7 +26,7 @@ export const HabitsProvider = ({ children }) => {
 
   useEffect(() => {
     HabitsList();
-  }, []);
+  }, [habits]);
 
   //Cadastrar novo habito
 
@@ -76,6 +76,8 @@ export const HabitsProvider = ({ children }) => {
         HabitDelete,
         habitID,
         setHabitID,
+        open,
+        setOpen,
       }}
     >
       {children}

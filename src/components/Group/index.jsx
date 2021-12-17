@@ -16,7 +16,7 @@ const Group = () => {
           <p>Categoria: {displayGroup.category}</p>
         </div>
         <Button
-          thin
+          thin="true"
           onClick={() => {
             Subscribe(displayGroup.id);
           }}
@@ -33,7 +33,7 @@ const Group = () => {
       <Activities />
 
       <Button
-        thin
+        thin="true"
         onClick={() => {
           Unsubscribe(displayGroup.id);
         }}

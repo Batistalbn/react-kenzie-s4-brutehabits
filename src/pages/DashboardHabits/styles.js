@@ -22,7 +22,7 @@ export const ContainerMain = styled.main`
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     overflow: auto;
   }
 `;
@@ -43,4 +43,11 @@ export const ContainerAdd = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+`;
+
+export const Habitdiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 `;
