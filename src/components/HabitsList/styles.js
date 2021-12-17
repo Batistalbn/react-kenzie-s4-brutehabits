@@ -17,6 +17,7 @@ export const CardContainer = styled.div`
   flex-direction: Column;
   margin-top: 20px;
   margin-left: 20px;
+  margin-right: 20px;
   background-color: var(--white);
   border-radius: 8px;
   div {

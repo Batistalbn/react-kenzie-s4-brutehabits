@@ -63,7 +63,7 @@ const DashboardGroups = () => {
         </DisplayGroups>
       </ContainerMain>
       <Modal open={open} setOpen={setOpen}>
-        <GroupSignup setOpes={setOpen} />
+        <GroupSignup setOpen={setOpen} />
       </Modal>
     </>
   );

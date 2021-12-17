@@ -24,7 +24,7 @@ export const Container = styled(Card)`
   p {
     text-align: center;
     line-height: 75px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 700;
   }
   button {

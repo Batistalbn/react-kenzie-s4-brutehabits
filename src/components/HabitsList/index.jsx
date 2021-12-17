@@ -16,6 +16,7 @@ const HabitsList = () => {
   const { habits, HabitDelete, HabitsList, setHabitID } =
     useContext(HabitsContext);
 
+  const [openEdit, setOpenEdit] = useState(false);
   const handleClose = (habitId) => {
     HabitDelete(habitId);
     HabitsList();
@@ -23,14 +24,12 @@ const HabitsList = () => {
 
   const handleEdit = async (habitId) => {
     await setHabitID(habitId);
-    setOpen(true);
+    setOpenEdit(true);
   };
 
-  // useEffect(() => {
-  //   HabitsList();
-  // }, [habits]);
-
-  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    HabitsList();
+  }, [habits]);
 
   return (
     <>
@@ -63,11 +62,11 @@ const HabitsList = () => {
       ) : (
         <AddHabit>
           <CardBody>
-            <h3>Seus Habitos serao exibidos aqui</h3>
+            <h3>Seus hábitos serão exibidos aqui</h3>
           </CardBody>
         </AddHabit>
       )}
-      <Modal open={open} setOpen={setOpen}>
+      <Modal open={openEdit} setOpen={setOpenEdit}>
         <HabitEdit />
       </Modal>
     </>

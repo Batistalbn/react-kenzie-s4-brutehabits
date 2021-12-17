@@ -2,7 +2,7 @@ import { Container } from "./styles";
 import { Button as MuiButton } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import BrutalHabits from "../../assets/BrutalHabits_900.png";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../providers/User";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";

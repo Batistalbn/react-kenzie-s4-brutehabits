@@ -10,7 +10,7 @@ import { HabitsContext } from "../../providers/Habits";
 import { useContext } from "react";
 
 const HabitNew = () => {
-  const { HabitCreate } = useContext(HabitsContext);
+  const { HabitCreate, open, setOpen } = useContext(HabitsContext);
   const userData =
     JSON.parse(localStorage.getItem("@BrutalHabits:userData")) || "";
 
@@ -38,10 +38,8 @@ const HabitNew = () => {
     },
   });
 
-  const [open, setOpen] = useState(false);
-
-  const onSubmitFunction = (data) => {
-    HabitCreate(data);
+  const onSubmitFunction = async (data) => {
+    await HabitCreate(data);
     setOpen(false);
   };
 
@@ -60,7 +58,7 @@ const HabitNew = () => {
                 m: 1,
               },
             }}
-            // noValidate
+            noValidate
             autoComplete="on"
           >
             <h1>Novo Habito</h1>
@@ -81,23 +79,39 @@ const HabitNew = () => {
               error={errors.email?.message}
               helperText={errors.email?.message}
             />
-            <TextField
-              color="secondary"
-              label="Dificuldade"
-              variant="filled"
+            <select
+              placeholder="Dificuldade"
               {...register("difficulty")}
               error={errors.difficulty?.message}
-              helperText={errors.difficulty?.message}
-            />
-            <TextField
-              color="secondary"
-              label="Frequencia"
-              variant="filled"
+              style={{ textAlign: "left" }}
+            >
+              {["", "Fácil", "Médio", "Difícil"].map((value) => (
+                <option key={value}>{value}</option>
+              ))}
+            </select>
+            <select
+              placeholder="Frequencia"
               {...register("frequency")}
               error={errors.frequency?.message}
-              helperText={errors.frequency?.message}
-            />
-            <Button type="submit" variant="contained" color="secondary" thin>
+              style={{ textAlign: "left" }}
+            >
+              {[
+                "",
+                "Diariamente",
+                "Menos de 3x semana",
+                "3 ou mais vezes na semana",
+                "1x por Semana",
+              ].map((value) => (
+                <option key={value}>{value}</option>
+              ))}
+            </select>
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="secondary"
+              thin="true"
+            >
               Registrar
             </Button>
           </Box>
