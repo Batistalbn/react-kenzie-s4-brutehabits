@@ -19,7 +19,7 @@ const DashboardHabits = () => {
       <ContainerMain>
         <section>
           <SectionHeader>
-            <h2>Habitos</h2>
+            <h2>Hábitos</h2>
             <AddButton onClick={() => setOpen(true)} />
           </SectionHeader>
           <HabitsList />
