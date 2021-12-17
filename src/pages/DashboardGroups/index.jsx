@@ -3,7 +3,13 @@ import { GroupsContext } from "../../providers/Groups";
 import AddButton from "../../components/AddButton";
 import Button from "../../components/Button";
 import PageButton from "../../components/PageButton";
-import { ContainerMain, HeaderGroups, DisplayGroups, Pages } from "./styles";
+import {
+  ContainerMain,
+  HeaderGroups,
+  DisplayGroups,
+  Pages,
+  HeaderTitle,
+} from "./styles";
 import Header from "../../components/Header";
 import GroupsList from "../../components/GroupsList";
 import Group from "../../components/Group";
@@ -25,17 +31,18 @@ const DashboardGroups = () => {
       <ContainerMain>
         <section>
           <HeaderGroups>
-            <div>
+            <HeaderTitle>
               <h3>Grupos</h3>
               <AddButton
                 onClick={() => {
                   setOpen(true);
                 }}
               />
-              <Button onClick={Subscriptions} variant="contained" thin>
-                Meus grupos
-              </Button>
-            </div>
+            </HeaderTitle>
+            <Button onClick={Subscriptions} variant="contained" thin>
+              Meus grupos
+            </Button>
+
             <div>
               <input
                 placeholder="Pesquisar"
