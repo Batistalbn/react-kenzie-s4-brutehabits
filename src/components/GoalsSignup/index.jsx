@@ -1,5 +1,5 @@
 import { TextField, Box } from "@mui/material";
-
+import Button from "../Button";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -81,7 +81,6 @@ const GoalsSignup = (setOpen) => {
             <option key={value}>{value}</option>
           ))}
         </select>
-
         <select
           placeholder="Objetivo alcançado?"
           {...register("achieved")}
@@ -92,7 +91,6 @@ const GoalsSignup = (setOpen) => {
             <option key={value}>{value}</option>
           ))}
         </select>
-
         <TextField
           color="secondary"
           className="title"
@@ -102,7 +100,9 @@ const GoalsSignup = (setOpen) => {
           error={errors.how_much_achieved?.message}
           helperText={errors.how_much_achieved?.message}
         />
-        <button type="submit">Cadastrar</button>
+        <Button type="submit" variant="contained" color="secondary">
+          Cadastrar
+        </Button>{" "}
       </Box>
     </div>
   );
