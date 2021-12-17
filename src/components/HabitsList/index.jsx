@@ -91,6 +91,7 @@ const HabitsList = () => {
         <AddHabit>
           <CardBody>
             <h3>Seus hábitos serão exibidos aqui</h3>
+
           </CardBody>
         </AddHabit>
       )}
